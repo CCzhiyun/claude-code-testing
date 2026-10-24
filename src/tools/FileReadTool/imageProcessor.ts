@@ -1,0 +1,3 @@
+import { readFile } from 'node:fs/promises';
+const types: Record<string, string> = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp' };
+export async function readImage(path: string, maxBytes = 10 * 1024 * 1024): Promise<{ mediaType: string; data: string }> { const extension = path.split('.').pop()?.toLowerCase() ?? ''; const mediaType = types[extension]; if (!mediaType) throw new Error(`Unsupported image extension: ${extension}`); const content = await readFile(path); if (content.byteLength > maxBytes) throw new Error('Image exceeds configured size limit'); return { mediaType, data: content.toString('base64') }; }

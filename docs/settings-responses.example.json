@@ -1,0 +1,26 @@
+{
+  "model": {
+    "provider": "openai",
+    "apiProtocol": "responses",
+    "responsesTransport": "native",
+    "name": "YOUR_MODEL_OR_DEPLOYMENT",
+    "baseUrl": "",
+    "endpointUrl": "https://gateway.example/v1/responses",
+    "apiKeyEnv": "OPENAI_API_KEY",
+    "apiKeyHeader": "authorization",
+    "apiKeyPrefix": "Bearer ",
+    "headersFromEnvironment": {},
+    "thinkingEnabled": false,
+    "fastMode": false,
+    "chatToolReasoning": "preserve",
+    "responsesStore": false,
+    "responsesTextFormat": null,
+    "completionTokenField": "max_completion_tokens",
+    "maxContextTokens": 128000,
+    "maxOutputTokens": 8192
+  },
+  "marketplaceEnabled": false,
+  "network": {
+    "rejectUnauthorized": true
+  }
+}

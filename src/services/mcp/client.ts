@@ -1,0 +1,3 @@
+import type { PlatformConfig } from '../../types.js'; import { callMcpServer, inspectMcpServer } from '../../mcp.js';
+export const connectMcpClient = (config: PlatformConfig, server: string) => { const definition = config.mcpServers[server]; if (!definition) throw new Error(`Unknown MCP server: ${server}`); return inspectMcpServer(server, definition, config); };
+export const callMcpTool = (config: PlatformConfig, server: string, tool: string, input: Record<string, unknown>) => { const definition = config.mcpServers[server]; if (!definition) throw new Error(`Unknown MCP server: ${server}`); return callMcpServer(server, definition, tool, input, config.policy.allowNetwork, undefined, config); };

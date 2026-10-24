@@ -1,0 +1,3 @@
+import { createTask, updateTask } from '../tasks.js';
+import type { TaskRecord } from '../types.js';
+export class LocalMainSessionTask { private record?: TaskRecord; constructor(private readonly teamSessionId: string, private readonly title: string) {} async start(): Promise<TaskRecord> { this.record = await createTask({ teamSessionId: this.teamSessionId, title: this.title }); return updateTask(this.record.id, { status: 'in_progress' }); } async complete(result: string): Promise<TaskRecord> { if (!this.record) throw new Error('Task has not started'); return updateTask(this.record.id, { status: 'completed', result }); } }

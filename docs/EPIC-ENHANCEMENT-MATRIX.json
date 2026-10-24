@@ -1,0 +1,4198 @@
+{
+  "generatedAt": "2026-09-02T16:59:18.649Z",
+  "totals": {
+    "total": 415,
+    "implemented": 332,
+    "partial": 0,
+    "integration-required": 83
+  },
+  "epics": [
+    {
+      "epic": 2,
+      "title": "Core Agentic Coding Engine",
+      "stories": 18,
+      "implemented": 18,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 3,
+      "title": "Context, Memory, and Project Understanding",
+      "stories": 14,
+      "implemented": 14,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 4,
+      "title": "Sessions, History, Branching, and Recovery",
+      "stories": 13,
+      "implemented": 13,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 5,
+      "title": "Checkpointing and Rewind",
+      "stories": 4,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/checkpoints.ts; test/state.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 6,
+      "title": "Models, Reasoning, Speed, and Response Behavior",
+      "stories": 10,
+      "implemented": 10,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 7,
+      "title": "Skills and Reusable Engineering Knowledge",
+      "stories": 12,
+      "implemented": 12,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 8,
+      "title": "Plugins and Extension Packaging",
+      "stories": 7,
+      "implemented": 7,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 9,
+      "title": "MCP External-System Integration",
+      "stories": 14,
+      "implemented": 14,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 10,
+      "title": "Hooks and Lifecycle Automation",
+      "stories": 32,
+      "implemented": 32,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 11,
+      "title": "Subagents",
+      "stories": 17,
+      "implemented": 17,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 12,
+      "title": "Agent View and Background Agent Management",
+      "stories": 8,
+      "implemented": 8,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 13,
+      "title": "Agent Teams",
+      "stories": 11,
+      "implemented": 11,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 14,
+      "title": "Cross-Session Agent Communication",
+      "stories": 5,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 15,
+      "title": "Dynamic Workflows",
+      "stories": 9,
+      "implemented": 9,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 16,
+      "title": "Git Worktrees and Code Isolation",
+      "stories": 7,
+      "implemented": 6,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 17,
+      "title": "Batch Development",
+      "stories": 1,
+      "implemented": 1,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/workflow.ts; src/skills/bundled/batch.ts; src/tools/shared/spawn.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 18,
+      "title": "Scheduled and Autonomous Work",
+      "stories": 9,
+      "implemented": 8,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 19,
+      "title": "Channels and Event-Driven Claude Sessions",
+      "stories": 5,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 20,
+      "title": "Artifacts",
+      "stories": 9,
+      "implemented": 9,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 21,
+      "title": "CLI User Experience",
+      "stories": 13,
+      "implemented": 13,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 22,
+      "title": "VS Code",
+      "stories": 13,
+      "implemented": 12,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 23,
+      "title": "JetBrains IDE Support",
+      "stories": 1,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (JetBrains adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 24,
+      "title": "Claude Code Desktop",
+      "stories": 20,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 20,
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 25,
+      "title": "Claude Code Web",
+      "stories": 12,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 12,
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 26,
+      "title": "Remote Control and Mobile",
+      "stories": 10,
+      "implemented": 9,
+      "partial": 0,
+      "integration-required": 1,
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 27,
+      "title": "Chrome Browser Automation",
+      "stories": 10,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 10,
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 28,
+      "title": "Computer Use",
+      "stories": 6,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 6,
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 29,
+      "title": "Git and Pull Request Workflow",
+      "stories": 5,
+      "implemented": 5,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 30,
+      "title": "Code Review",
+      "stories": 8,
+      "implemented": 8,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 31,
+      "title": "Security Review",
+      "stories": 6,
+      "implemented": 6,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 32,
+      "title": "GitHub and GitLab Automation",
+      "stories": 8,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 8,
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 33,
+      "title": "Permissions",
+      "stories": 9,
+      "implemented": 9,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 34,
+      "title": "Sandbox and Credential Protection",
+      "stories": 7,
+      "implemented": 5,
+      "partial": 0,
+      "integration-required": 2,
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Fail-closed sandbox contracts, path/environment isolation and wrapper enforcement exist; OS-level isolation is supplied by the configured enterprise wrapper."
+    },
+    {
+      "epic": 35,
+      "title": "Auto Mode and Autonomous Safety",
+      "stories": 3,
+      "implemented": 3,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/policy.ts; src/utils/permissions/classifier.ts; test/reference-batch-compatibility.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 36,
+      "title": "Configuration and `.claude` Workspace",
+      "stories": 7,
+      "implemented": 7,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 37,
+      "title": "Authentication and Administration",
+      "stories": 6,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 6,
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 38,
+      "title": "Enterprise Model Providers",
+      "stories": 5,
+      "implemented": 5,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 39,
+      "title": "Enterprise Networking",
+      "stories": 4,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/network.ts; src/services/oauth/; test/network.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 40,
+      "title": "LLM Gateway",
+      "stories": 5,
+      "implemented": 3,
+      "partial": 0,
+      "integration-required": 2,
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 41,
+      "title": "Development Environments",
+      "stories": 10,
+      "implemented": 0,
+      "partial": 0,
+      "integration-required": 10,
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "epic": 42,
+      "title": "Monitoring, Analytics, and Cost",
+      "stories": 7,
+      "implemented": 7,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 43,
+      "title": "Privacy, Data, and Compliance",
+      "stories": 3,
+      "implemented": 3,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enterprise.ts retention/privacy policy; src/audit.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 44,
+      "title": "Troubleshooting and Self-Diagnosis",
+      "stories": 4,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/screens/Doctor.ts; src/cli.ts; src/tui.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 45,
+      "title": "Onboarding and Adoption",
+      "stories": 4,
+      "implemented": 4,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/enhancements/onboarding.ts; src/tools/ProductTools/index.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "epic": 46,
+      "title": "Agent SDK",
+      "stories": 24,
+      "implemented": 24,
+      "partial": 0,
+      "integration-required": 0,
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    }
+  ],
+  "stories": [
+    {
+      "id": "US-2.1",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Autonomous Agentic Loop",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.2",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Read Project Files",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.3",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Search the Repository",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.4",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Write New Files",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.5",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Edit Existing Files",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.6",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Execute Shell Commands",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.7",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Persistent Working Directory",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.8",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Notebook Editing",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.9",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Language Server Integration",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.10",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Ask Structured Questions",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.11",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Plan Mode",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.12",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Web Search",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.13",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Web Content Fetching",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.14",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Task Management",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.15",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Background Command Monitoring",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.16",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Send Files to the User",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.17",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "Push Notifications",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-2.18",
+      "epic": 2,
+      "epicTitle": "Core Agentic Coding Engine",
+      "title": "End a Conversation Deliberately",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/tooling.ts; src/tools/; test/agent-operation.test.ts; test/source-foundations.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.1",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Context Window Management",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.2",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Automatic Context Compaction",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.3",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Context Inspection",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.4",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Prompt Caching",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.5",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "CLAUDE.md Project Instructions",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.6",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Hierarchical CLAUDE.md",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.7",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Imported Instructions",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.8",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "AGENTS.md Compatibility",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.9",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Modular Rules",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.10",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Auto Memory",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.11",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Memory Inspection and Editing",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.12",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Separate Subagent Memory",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.13",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Initialize Project Instructions",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-3.14",
+      "epic": 3,
+      "epicTitle": "Context, Memory, and Project Understanding",
+      "title": "Advanced Interactive Initialization",
+      "status": "implemented",
+      "evidence": "src/context.ts; src/memory.ts; src/memdir/; src/services/compact/; src/sessions.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.1",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Persistent Development Sessions",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.2",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Continue Most Recent Session",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.3",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Resume a Selected Session",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.4",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Search Sessions Across Projects",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.5",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Name and Rename Sessions",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.6",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Resume by Pull Request",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.7",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Session Picker Filtering",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.8",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Fork a Conversation",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.9",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Background Fork",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.10",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Clear Conversation Context",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.11",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Export Conversation",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.12",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Machine-Readable Session Output",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-4.13",
+      "epic": 4,
+      "epicTitle": "Sessions, History, Branching, and Recovery",
+      "title": "Session Recap",
+      "status": "implemented",
+      "evidence": "src/sessions.ts; src/assistant/sessionHistory.ts; src/screens/ResumeConversation.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-5.1",
+      "epic": 5,
+      "epicTitle": "Checkpointing and Rewind",
+      "title": "Automatic Code Checkpoints",
+      "status": "implemented",
+      "evidence": "src/checkpoints.ts; test/state.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-5.2",
+      "epic": 5,
+      "epicTitle": "Checkpointing and Rewind",
+      "title": "Rewind Code and Conversation",
+      "status": "implemented",
+      "evidence": "src/checkpoints.ts; test/state.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-5.3",
+      "epic": 5,
+      "epicTitle": "Checkpointing and Rewind",
+      "title": "Persistent Checkpoints Across Resume",
+      "status": "implemented",
+      "evidence": "src/checkpoints.ts; test/state.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-5.4",
+      "epic": 5,
+      "epicTitle": "Checkpointing and Rewind",
+      "title": "Explicit Checkpoint Limitations",
+      "status": "implemented",
+      "evidence": "src/checkpoints.ts; test/state.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.1",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Model Selection",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.2",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Model Aliases",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.3",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Model Version Pinning",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.4",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Model Fallback",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.5",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Large Context Models",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.6",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Reasoning Effort Control",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.7",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Fast Mode",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.8",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Advisor",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.9",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Output Styles",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-6.10",
+      "epic": 6,
+      "epicTitle": "Models, Reasoning, Speed, and Response Behavior",
+      "title": "Custom Output Styles",
+      "status": "implemented",
+      "evidence": "src/enhancements/modelRouting.ts; src/config.ts; src/model.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.1",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Agent Skills",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.2",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Automatic Skill Discovery",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.3",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Explicit Skill Invocation",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.4",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Lazy Skill Loading",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.5",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Skill Supporting Files",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.6",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Skill Arguments",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.7",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Skill Tool Restrictions",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.8",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Skills Running in Subagents",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.9",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Dynamic Context Injection",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.10",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Skill Evaluation",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.11",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Shared Skills",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-7.12",
+      "epic": 7,
+      "epicTitle": "Skills and Reusable Engineering Knowledge",
+      "title": "Bundled Skills and Workflows",
+      "status": "implemented",
+      "evidence": "src/skills.ts; src/skills/; src/tools/SkillTool/; test/platform.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.1",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Plugin Packages",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.2",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Plugin Marketplaces",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.3",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Private Organization Marketplaces",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.4",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Plugin Version Management",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.5",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Namespaced Plugin Skills",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.6",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Plugin Development Tools",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-8.7",
+      "epic": 8,
+      "epicTitle": "Plugins and Extension Packaging",
+      "title": "Organization Plugin Recommendations",
+      "status": "implemented",
+      "evidence": "src/enhancements/marketplace.ts; src/plugins.ts; src/services/plugins/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.1",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Client",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.2",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "Local MCP Servers",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.3",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "Remote MCP Servers",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.4",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Tools",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.5",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Resources",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.6",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Prompts",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.7",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP OAuth",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.8",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Login and Logout",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.9",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Headers and Authentication Configuration",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.10",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Reconnection",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.11",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Output Limits",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.12",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "MCP Tool Search",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.13",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "Managed MCP Policy",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-9.14",
+      "epic": 9,
+      "epicTitle": "MCP External-System Integration",
+      "title": "Claude Code as MCP Server",
+      "status": "implemented",
+      "evidence": "src/mcp.ts; src/services/mcp/; src/tools/MCPTool/; test/mcp.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.1",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Lifecycle Hooks",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.2",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "SessionStart Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.3",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Setup Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.4",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "UserPromptSubmit Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.5",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "UserPromptExpansion Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.6",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PreToolUse Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.7",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PermissionRequest Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.8",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PermissionDenied Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.9",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PostToolUse Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.10",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PostToolUseFailure Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.11",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PostToolBatch Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.12",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Notification Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.13",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "MessageDisplay Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.14",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "SubagentStart Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.15",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "SubagentStop Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.16",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "TaskCreated Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.17",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "TaskCompleted Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.18",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Stop Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.19",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "StopFailure Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.20",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "TeammateIdle Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.21",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "InstructionsLoaded Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.22",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "ConfigChange Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.23",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "CwdChanged Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.24",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "DirectoryAdded Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.25",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "FileChanged Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.26",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "WorktreeCreate Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.27",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "WorktreeRemove Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.28",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PreCompact Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.29",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "PostCompact Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.30",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Elicitation Hooks",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.31",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "SessionEnd Hook",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-10.32",
+      "epic": 10,
+      "epicTitle": "Hooks and Lifecycle Automation",
+      "title": "Multiple Hook Implementations",
+      "status": "implemented",
+      "evidence": "src/enhancements/lifecycle.ts; src/hooks.ts; src/types.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.1",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Specialized Subagents",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.2",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Separate Agent Context",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.3",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Built-In Explore Agent",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.4",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Built-In Plan Agent",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.5",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "General-Purpose Agent",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.6",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Custom Agent Definitions",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.7",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent-Specific Model",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.8",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent-Specific Tools",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.9",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent-Specific Permissions",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.10",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent-Specific Hooks",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.11",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent-Specific Skills",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.12",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent Turn Limits",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.13",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Persistent Agent Memory",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.14",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Background Subagents",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.15",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Resume Agents",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.16",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Agent Worktree Isolation",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-11.17",
+      "epic": 11,
+      "epicTitle": "Subagents",
+      "title": "Nested Agent Delegation",
+      "status": "implemented",
+      "evidence": "src/agent.ts; src/agents.ts; src/tools/AgentTool/; test/agent-operation.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.1",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Agent Dashboard",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.2",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Agent Status",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.3",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Inspect Agent Progress",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.4",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Reply to an Agent",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.5",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Attach and Detach",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.6",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Persistent Background Supervisor",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.7",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Organize Agents",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-12.8",
+      "epic": 12,
+      "epicTitle": "Agent View and Background Agent Management",
+      "title": "Machine-Readable Agent List",
+      "status": "implemented",
+      "evidence": "src/enhancements/supervisor.ts; src/agent.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.1",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Multi-Agent Team",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.2",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Shared Task List",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.3",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Direct Agent-to-Agent Messaging",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.4",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Lead Agent",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.5",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Agent Team Display Modes",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.6",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Plan-First Team Members",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.7",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Task Claiming",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.8",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Controlled Teammate Shutdown",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.9",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Agent Quality Gates",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.10",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Parallel Review",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-13.11",
+      "epic": 13,
+      "epicTitle": "Agent Teams",
+      "title": "Competing Hypotheses",
+      "status": "implemented",
+      "evidence": "src/enhancements/teamOrchestration.ts; src/teamStore.ts; src/tasks.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-14.1",
+      "epic": 14,
+      "epicTitle": "Cross-Session Agent Communication",
+      "title": "Discover Other Agents",
+      "status": "implemented",
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-14.2",
+      "epic": 14,
+      "epicTitle": "Cross-Session Agent Communication",
+      "title": "Send Messages Across Sessions",
+      "status": "implemented",
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-14.3",
+      "epic": 14,
+      "epicTitle": "Cross-Session Agent Communication",
+      "title": "Cross-Worktree Coordination",
+      "status": "implemented",
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-14.4",
+      "epic": 14,
+      "epicTitle": "Cross-Session Agent Communication",
+      "title": "Cross-Machine Communication",
+      "status": "integration-required",
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Durable local/cross-worktree messaging and authenticated channels exist; cross-machine delivery needs a configured remote transport."
+    },
+    {
+      "id": "US-14.5",
+      "epic": 14,
+      "epicTitle": "Cross-Session Agent Communication",
+      "title": "Inbound Message Policies",
+      "status": "implemented",
+      "evidence": "src/mailbox.ts; src/channels.ts; src/remote/; src/bridge/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.1",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Runtime-Generated Workflows",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.2",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Background Workflow Runtime",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.3",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Large Agent Fan-Out",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.4",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Workflow Approval",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.5",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Workflow Re-Run",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.6",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Workflow Distribution",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.7",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Deep Research Workflow",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.8",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Per-File Parallel Operations",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-15.9",
+      "epic": 15,
+      "epicTitle": "Dynamic Workflows",
+      "title": "Iterative Fix-Until-Pass Workflow",
+      "status": "implemented",
+      "evidence": "src/enhancements/workflowRuntime.ts; src/workflow.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.1",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Start Claude in a Worktree",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.2",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Agent-Created Worktrees",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.3",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Exit and Clean Up Worktrees",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.4",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Include Additional Files",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.5",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Worktree Environment Hooks",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-16.6",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Alternative VCS Isolation",
+      "status": "integration-required",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Git worktree isolation is complete; alternative VCS implementations require adapters."
+    },
+    {
+      "id": "US-16.7",
+      "epic": 16,
+      "epicTitle": "Git Worktrees and Code Isolation",
+      "title": "Explicit Shared vs Isolated State",
+      "status": "implemented",
+      "evidence": "src/worktree.ts includeWorktreeFiles; src/tools/EnterWorktreeTool/; test/epic-local-completion.test.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-17.1",
+      "epic": 17,
+      "epicTitle": "Batch Development",
+      "title": "Batch Implementation",
+      "status": "implemented",
+      "evidence": "src/workflow.ts; src/skills/bundled/batch.ts; src/tools/shared/spawn.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.1",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "In-Session Scheduled Tasks",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.2",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "`/loop`",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.3",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "Cron Scheduling",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.4",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "One-Time Wakeups",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.5",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "`/goal`",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.6",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "Goal Persistence Across Resume",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.7",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "Remote Routines",
+      "status": "integration-required",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Routines, history, Cron records and wakeups are durable; OS/cloud scheduler execution requires a host scheduler."
+    },
+    {
+      "id": "US-18.8",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "Routine Inputs",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-18.9",
+      "epic": 18,
+      "epicTitle": "Scheduled and Autonomous Work",
+      "title": "Run History",
+      "status": "implemented",
+      "evidence": "src/automation.ts; src/tui.ts /goal; src/tools/ScheduleCronTool/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-19.1",
+      "epic": 19,
+      "epicTitle": "Channels and Event-Driven Claude Sessions",
+      "title": "External Event Channels",
+      "status": "implemented",
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-19.2",
+      "epic": 19,
+      "epicTitle": "Channels and Event-Driven Claude Sessions",
+      "title": "Two-Way Channel Communication",
+      "status": "implemented",
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-19.3",
+      "epic": 19,
+      "epicTitle": "Channels and Event-Driven Claude Sessions",
+      "title": "Supported Messaging Integrations",
+      "status": "integration-required",
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Authenticated two-way channel core is complete; Slack/Discord/etc. adapters and organization delivery infrastructure are external."
+    },
+    {
+      "id": "US-19.4",
+      "epic": 19,
+      "epicTitle": "Channels and Event-Driven Claude Sessions",
+      "title": "Channel Pairing and Allowlist",
+      "status": "implemented",
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-19.5",
+      "epic": 19,
+      "epicTitle": "Channels and Event-Driven Claude Sessions",
+      "title": "Organization Channel Policy",
+      "status": "implemented",
+      "evidence": "src/channels.ts; src/tools/ProductTools/index.ts; src/remote/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.1",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Generate Interactive Artifacts",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.2",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Artifact Privacy",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.3",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Update Existing Artifact",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.4",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Artifact Discovery",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.5",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Collaborative Comments",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.6",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Claude Replies to Comments",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.7",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Live MCP Data in Artifacts",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.8",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Engineering Visualization",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-20.9",
+      "epic": 20,
+      "epicTitle": "Artifacts",
+      "title": "Organization Artifact Governance",
+      "status": "implemented",
+      "evidence": "src/artifacts.ts refreshArtifactDataSources; src/mcp.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.1",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Interactive Terminal Interface",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.2",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Shell Shortcut",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.3",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Command History Search",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.4",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Vim/Editor Input Modes",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.5",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Multiline Input",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.6",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Terminal Notifications",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.7",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Themes",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.8",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Full-Screen Rendering",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.9",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Focus Mode",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.10",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Custom Keybindings",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.11",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Status Line",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.12",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Voice Dictation",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-21.13",
+      "epic": 21,
+      "epicTitle": "CLI User Experience",
+      "title": "Accessibility",
+      "status": "implemented",
+      "evidence": "src/tui.ts; src/enhancements/accessibility.ts; src/components/theme.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.1",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Native VS Code Experience",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.2",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "File and Folder Mentions",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.3",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Line-Range Context",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.4",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Plan Review in IDE",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.5",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Edit Acceptance",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.6",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Multiple Conversations",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.7",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Background Agents in IDE",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.8",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "VS Code Plugin Management",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.9",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Browser Automation from IDE",
+      "status": "integration-required",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Bundled VS Code bridge is functional; marketplace publication and browser automation require their external hosts."
+    },
+    {
+      "id": "US-22.10",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "IDE Checkpoints",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.11",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Terminal Output",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.12",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Git and PR Workflow",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-22.13",
+      "epic": 22,
+      "epicTitle": "VS Code",
+      "title": "Focus View",
+      "status": "implemented",
+      "evidence": "src/enhancements/ideReview.ts; src/ide.ts; vscode-extension/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-23.1",
+      "epic": 23,
+      "epicTitle": "JetBrains IDE Support",
+      "title": "JetBrains Integration",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (JetBrains adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.1",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Desktop Application",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.2",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Parallel Desktop Sessions",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.3",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Git Isolation",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.4",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Integrated Terminal",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.5",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Integrated File Editor",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.6",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Visual Diff",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.7",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "App Preview",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.8",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Preview Server Management",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.9",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Side Chats",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.10",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Background Tasks",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.11",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "PR Monitoring",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.12",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Connectors",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.13",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Computer Use",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.14",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Local, Cloud, and SSH Sessions",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.15",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Managed SSH Hosts",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.16",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Continue Across Surfaces",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.17",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Dispatch",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.18",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Desktop Scheduled Tasks",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.19",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "Linux and WSL Support",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-24.20",
+      "epic": 24,
+      "epicTitle": "Claude Code Desktop",
+      "title": "iOS Simulator Integration",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (desktop host required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.1",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Cloud Coding Session",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.2",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Launch Cloud Work from CLI",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.3",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Persistent Cloud Session",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.4",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Multiple Parallel Cloud Tasks",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.5",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "GitHub Repository Integration",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.6",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Local Repository Upload",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.7",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Cloud-to-Terminal Teleport",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.8",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Cloud Session Sharing",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.9",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Archive/Delete Cloud Sessions",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.10",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Cloud Diff Review",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.11",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "PR Auto-Fix",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-25.12",
+      "epic": 25,
+      "epicTitle": "Claude Code Web",
+      "title": "Isolated Cloud Environment",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts (cloud control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-26.1",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Remote Control Local Claude",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.2",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Keep Tools Local",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.3",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Start Remote Control from CLI",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.4",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "QR and Session Link",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.5",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Remote Agent Progress",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.6",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Upload Photos or Files Remotely",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.7",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Connection Recovery",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.8",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Trusted Device Controls",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.9",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Organization Remote-Control Policy",
+      "status": "implemented",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-26.10",
+      "epic": 26,
+      "epicTitle": "Remote Control and Mobile",
+      "title": "Mobile Push Notifications",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/bridge/; src/upstreamproxy/",
+      "boundary": "Remote protocol, trusted devices, attachments and recovery exist; mobile push delivery requires APNs/FCM credentials."
+    },
+    {
+      "id": "US-27.1",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Browser Control",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.2",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Authenticated Browser Session",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.3",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "DOM Inspection",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.4",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Console Inspection",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.5",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Visual Verification",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.6",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "End-to-End Testing",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.7",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Form Interaction",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.8",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Data Extraction",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.9",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Screenshots and Recording",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-27.10",
+      "epic": 27,
+      "epicTitle": "Chrome Browser Automation",
+      "title": "Site Permission Controls",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (browser adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.1",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Desktop GUI Control",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.2",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Screen Understanding",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.3",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Mouse and Keyboard Interaction",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.4",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Application Approval",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.5",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Tool Preference",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-28.6",
+      "epic": 28,
+      "epicTitle": "Computer Use",
+      "title": "Visual Bug Reproduction",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (computer-use adapter required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-29.1",
+      "epic": 29,
+      "epicTitle": "Git and Pull Request Workflow",
+      "title": "Git Repository Awareness",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-29.2",
+      "epic": 29,
+      "epicTitle": "Git and Pull Request Workflow",
+      "title": "Diff Inspection",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-29.3",
+      "epic": 29,
+      "epicTitle": "Git and Pull Request Workflow",
+      "title": "Commit Assistance",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-29.4",
+      "epic": 29,
+      "epicTitle": "Git and Pull Request Workflow",
+      "title": "Pull Request Creation",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-29.5",
+      "epic": 29,
+      "epicTitle": "Git and Pull Request Workflow",
+      "title": "PR Context",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/worktree.ts; src/tooling.ts; test/worktree.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.1",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Local `/code-review`",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.2",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Review Scope Selection",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.3",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Review Effort",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.4",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Automatically Fix Review Findings",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.5",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Comment Findings",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.6",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Managed Code Review",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.7",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Repository Review Instructions",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-30.8",
+      "epic": 30,
+      "epicTitle": "Code Review",
+      "title": "Ultrareview",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts; src/commands/localWorkflows.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.1",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Security Guidance Plugin",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.2",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Custom Security Rules",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.3",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Claude Security",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.4",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Whole Repository Security Review",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.5",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Diff/PR/Commit Security Scope",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-31.6",
+      "epic": 31,
+      "epicTitle": "Security Review",
+      "title": "Human-Controlled Security Patches",
+      "status": "implemented",
+      "evidence": "src/enhancements/review.ts scanSecurityRules; src/utils/permissions/; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-32.1",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "GitHub Actions",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.2",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "Mention Claude",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.3",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "Automatic GitHub Event Prompts",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.4",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "Scheduled GitHub Workflows",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.5",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "Skills in CI",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.6",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "Cloud Provider Authentication",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.7",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "GitLab CI/CD",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-32.8",
+      "epic": 32,
+      "epicTitle": "GitHub and GitLab Automation",
+      "title": "GitHub Enterprise Server",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts ExternalSurfaceRegistry (GitHub/GitLab CI installation required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-33.1",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Permission Modes",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.2",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Allow Rules",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.3",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Ask Rules",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.4",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Deny Rules",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.5",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Rule Precedence",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.6",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Tool-Specific Policies",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.7",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Tool-Argument Matching",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.8",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Live Permission Management",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-33.9",
+      "epic": 33,
+      "epicTitle": "Permissions",
+      "title": "Explain Permission Requests",
+      "status": "implemented",
+      "evidence": "src/utils/permissions/; src/policy.ts; test/policy.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-34.1",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "OS-Level Bash Sandbox",
+      "status": "integration-required",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Fail-closed sandbox contracts, path/environment isolation and wrapper enforcement exist; OS-level isolation is supplied by the configured enterprise wrapper."
+    },
+    {
+      "id": "US-34.2",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Filesystem Isolation",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-34.3",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Network Isolation",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-34.4",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Credential Isolation",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-34.5",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Protected Paths",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-34.6",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Controlled Unsandboxed Retry",
+      "status": "integration-required",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Fail-closed sandbox contracts, path/environment isolation and wrapper enforcement exist; OS-level isolation is supplied by the configured enterprise wrapper."
+    },
+    {
+      "id": "US-34.7",
+      "epic": 34,
+      "epicTitle": "Sandbox and Credential Protection",
+      "title": "Managed Sandbox Enforcement",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/environment.ts; src/entrypoints/sandboxTypes.ts (OS wrapper deployment required)",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-35.1",
+      "epic": 35,
+      "epicTitle": "Auto Mode and Autonomous Safety",
+      "title": "Auto Mode",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/utils/permissions/classifier.ts; test/reference-batch-compatibility.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-35.2",
+      "epic": 35,
+      "epicTitle": "Auto Mode and Autonomous Safety",
+      "title": "Hard Safety Boundaries",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/utils/permissions/classifier.ts; test/reference-batch-compatibility.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-35.3",
+      "epic": 35,
+      "epicTitle": "Auto Mode and Autonomous Safety",
+      "title": "Auto Mode Configuration",
+      "status": "implemented",
+      "evidence": "src/policy.ts; src/utils/permissions/classifier.ts; test/reference-batch-compatibility.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.1",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "User Settings",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.2",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "Project Settings",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.3",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "Local Project Settings",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.4",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "Managed Settings",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.5",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "Server-Managed Settings",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.6",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "`/config`",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-36.7",
+      "epic": 36,
+      "epicTitle": "Configuration and `.claude` Workspace",
+      "title": "Shared `.claude` Structure",
+      "status": "implemented",
+      "evidence": "src/config.ts; src/migrations/; src/services/remoteManagedSettings/; test/config.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-37.1",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "User Authentication",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-37.2",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "Enterprise SSO",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-37.3",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "Domain and Organization Management",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-37.4",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "RBAC",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-37.5",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "Central MCP Governance",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-37.6",
+      "epic": 37,
+      "epicTitle": "Authentication and Administration",
+      "title": "Version Management",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts RBAC/provider contracts (external IdP and admin control plane required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-38.1",
+      "epic": 38,
+      "epicTitle": "Enterprise Model Providers",
+      "title": "Anthropic Direct",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-38.2",
+      "epic": 38,
+      "epicTitle": "Enterprise Model Providers",
+      "title": "AWS Bedrock",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-38.3",
+      "epic": 38,
+      "epicTitle": "Enterprise Model Providers",
+      "title": "Claude Platform on AWS",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-38.4",
+      "epic": 38,
+      "epicTitle": "Enterprise Model Providers",
+      "title": "Google Cloud Agent Platform / Vertex Integration",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-38.5",
+      "epic": 38,
+      "epicTitle": "Enterprise Model Providers",
+      "title": "Microsoft Foundry",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts providerProfile; src/config.ts; src/network.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-39.1",
+      "epic": 39,
+      "epicTitle": "Enterprise Networking",
+      "title": "HTTP/HTTPS Proxy",
+      "status": "implemented",
+      "evidence": "src/network.ts; src/services/oauth/; test/network.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-39.2",
+      "epic": 39,
+      "epicTitle": "Enterprise Networking",
+      "title": "Custom Certificate Authorities",
+      "status": "implemented",
+      "evidence": "src/network.ts; src/services/oauth/; test/network.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-39.3",
+      "epic": 39,
+      "epicTitle": "Enterprise Networking",
+      "title": "Mutual TLS",
+      "status": "implemented",
+      "evidence": "src/network.ts; src/services/oauth/; test/network.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-39.4",
+      "epic": 39,
+      "epicTitle": "Enterprise Networking",
+      "title": "Corporate Process Launcher",
+      "status": "implemented",
+      "evidence": "src/network.ts; src/services/oauth/; test/network.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-40.1",
+      "epic": 40,
+      "epicTitle": "LLM Gateway",
+      "title": "Enterprise LLM Gateway",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-40.2",
+      "epic": 40,
+      "epicTitle": "LLM Gateway",
+      "title": "Authentication and Routing",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-40.3",
+      "epic": 40,
+      "epicTitle": "LLM Gateway",
+      "title": "Spend Limits",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-40.4",
+      "epic": 40,
+      "epicTitle": "LLM Gateway",
+      "title": "SSO-Based Gateway Access",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Gateway routing and hard spend evaluation exist; SSO and gateway infrastructure are external."
+    },
+    {
+      "id": "US-40.5",
+      "epic": 40,
+      "epicTitle": "LLM Gateway",
+      "title": "Gateway Deployment",
+      "status": "integration-required",
+      "evidence": "src/enterprise.ts spend/provider policy; src/config.ts model endpoint routing",
+      "boundary": "Gateway routing and hard spend evaluation exist; SSO and gateway infrastructure are external."
+    },
+    {
+      "id": "US-41.1",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Local Environment",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.2",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Dev Containers",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.3",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Cloud Environments",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.4",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Self-Hosted Environments",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.5",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Self-Hosted Session Orchestrator",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.6",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "On-Demand Runners",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.7",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Per-Session Credentials",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.8",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Session Identity",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.9",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "Self-Hosted Hooks",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-41.10",
+      "epic": 41,
+      "epicTitle": "Development Environments",
+      "title": "E2E Environment Testing",
+      "status": "integration-required",
+      "evidence": "src/server/; src/remote/; src/enterprise.ts signed runner identity (runner infrastructure required)",
+      "boundary": "A local core is implemented; deployment-specific behavior requires configured infrastructure."
+    },
+    {
+      "id": "US-42.1",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Usage Visibility",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.2",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Usage Breakdown",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.3",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Cost Information",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.4",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "OpenTelemetry",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.5",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Metrics and Events",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.6",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Analytics Dashboard",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-42.7",
+      "epic": 42,
+      "epicTitle": "Monitoring, Analytics, and Cost",
+      "title": "Personal Insights",
+      "status": "implemented",
+      "evidence": "src/enhancements/analyticsDashboard.ts; src/usage.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-43.1",
+      "epic": 43,
+      "epicTitle": "Privacy, Data, and Compliance",
+      "title": "Data Usage Transparency",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts retention/privacy policy; src/audit.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-43.2",
+      "epic": 43,
+      "epicTitle": "Privacy, Data, and Compliance",
+      "title": "Zero Data Retention Options",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts retention/privacy policy; src/audit.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-43.3",
+      "epic": 43,
+      "epicTitle": "Privacy, Data, and Compliance",
+      "title": "Compliance Controls",
+      "status": "implemented",
+      "evidence": "src/enterprise.ts retention/privacy policy; src/audit.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-44.1",
+      "epic": 44,
+      "epicTitle": "Troubleshooting and Self-Diagnosis",
+      "title": "`/doctor`",
+      "status": "implemented",
+      "evidence": "src/screens/Doctor.ts; src/cli.ts; src/tui.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-44.2",
+      "epic": 44,
+      "epicTitle": "Troubleshooting and Self-Diagnosis",
+      "title": "`/debug`",
+      "status": "implemented",
+      "evidence": "src/screens/Doctor.ts; src/cli.ts; src/tui.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-44.3",
+      "epic": 44,
+      "epicTitle": "Troubleshooting and Self-Diagnosis",
+      "title": "Configuration Inspection",
+      "status": "implemented",
+      "evidence": "src/screens/Doctor.ts; src/cli.ts; src/tui.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-44.4",
+      "epic": 44,
+      "epicTitle": "Troubleshooting and Self-Diagnosis",
+      "title": "Error Reference",
+      "status": "implemented",
+      "evidence": "src/screens/Doctor.ts; src/cli.ts; src/tui.ts; docs/ENTERPRISE.md",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-45.1",
+      "epic": 45,
+      "epicTitle": "Onboarding and Adoption",
+      "title": "Team Onboarding",
+      "status": "implemented",
+      "evidence": "src/enhancements/onboarding.ts; src/tools/ProductTools/index.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-45.2",
+      "epic": 45,
+      "epicTitle": "Onboarding and Adoption",
+      "title": "In-Product Lessons",
+      "status": "implemented",
+      "evidence": "src/enhancements/onboarding.ts; src/tools/ProductTools/index.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-45.3",
+      "epic": 45,
+      "epicTitle": "Onboarding and Adoption",
+      "title": "Power-Up Guidance",
+      "status": "implemented",
+      "evidence": "src/enhancements/onboarding.ts; src/tools/ProductTools/index.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-45.4",
+      "epic": 45,
+      "epicTitle": "Onboarding and Adoption",
+      "title": "Champion and Communication Materials",
+      "status": "implemented",
+      "evidence": "src/enhancements/onboarding.ts; src/tools/ProductTools/index.ts; test/epic-local-completion.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.1",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Embed Claude Code Agent Loop",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.2",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Built-In Tools in SDK",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.3",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Sessions",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.4",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Resume and Fork via SDK",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.5",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "External Session Storage",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.6",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Streaming Input",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.7",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Streaming Output",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.8",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "User Approval",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.9",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "User Questions",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.10",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Structured Output",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.11",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Custom In-Process Tools",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.12",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "External MCP in SDK",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.13",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Tool Search",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.14",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Subagents",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.15",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Custom System Prompt",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.16",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Skills in SDK",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.17",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Plugins in SDK",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.18",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Permission System",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.19",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Hooks",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.20",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Checkpointing",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.21",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Cost Tracking",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.22",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK OpenTelemetry",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.23",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "SDK Todo/Task State",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    },
+    {
+      "id": "US-46.24",
+      "epic": 46,
+      "epicTitle": "Agent SDK",
+      "title": "Production Hosting Guidance",
+      "status": "implemented",
+      "evidence": "src/entrypoints/sdk.ts; src/entrypoints/sdk/session.ts; src/entrypoints/agentSdkTypes.ts; test/epic-enhancements.test.ts",
+      "boundary": "Local acceptance path is implemented and tested."
+    }
+  ]
+}

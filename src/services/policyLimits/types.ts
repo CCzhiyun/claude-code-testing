@@ -1,0 +1,1 @@
+export interface PolicyLimits { maxConcurrentAgents?: number; maxAgentsPerSession?: number; maxTurns?: number; maxCommandTimeoutMs?: number; maxAttachmentBytes?: number; forceRestrictedMode?: boolean; denyNetwork?: boolean }

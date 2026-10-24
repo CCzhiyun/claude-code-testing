@@ -1,0 +1,1 @@
+export const verifyInstructions = 'Identify the acceptance conditions, run the most direct checks, inspect generated artifacts where layout or protocol shape matters, distinguish warnings from failures, and report exact commands and residual unverified boundaries.';

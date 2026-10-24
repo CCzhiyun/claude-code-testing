@@ -1,0 +1,18 @@
+// Actual built Node CLI, two locally signed fixture plugins, no provider/network.
+import {generateKeyPairSync} from 'node:crypto';
+import {mkdtemp,mkdir,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {writeJson} from '../src/storage.js';
+import {trustWorkspace} from '../src/workspaceTrust.js';
+import {removeOwnedTemporaryFixture} from '../test/fixtureCleanup.js';
+const project=resolve(import.meta.dir,'..'),root=await mkdtemp(join(tmpdir(),'ccpt-node-pluginset-062-')),old=process.env.CCPT_HOME,home=join(root,'home'),entry=join(project,'dist/cli.js');process.env.CCPT_HOME=home;
+const env:Record<string,string>={CCPT_HOME:home};for(const key of ['PATH','Path','SystemRoot','COMSPEC','TEMP','TMP','USERPROFILE'])if(process.env[key])env[key]=process.env[key]!;
+async function cli(args:string[]){const child=Bun.spawn(['node',entry,...args,'--cwd',root],{cwd:root,env,stdin:'ignore',stdout:'pipe',stderr:'pipe'}),timer=setTimeout(()=>child.kill(),20000);try{const[out,err,code]=await Promise.all([new Response(child.stdout).text(),new Response(child.stderr).text(),child.exited]);if(code)throw new Error(err);return JSON.parse(out);}finally{clearTimeout(timer);}}
+try{
+ const keys=generateKeyPairSync('ed25519'),key=join(root,'publisher.pem');await writeFile(key,keys.privateKey.export({type:'pkcs8',format:'pem'}));const settings={disableBundledSkills:true,marketplaceEnabled:false,hooks:[],requirePluginSignatures:true,pluginTrustKeys:{publisher:keys.publicKey.export({type:'spki',format:'pem'}).toString()},policy:{workspaceRoots:[root]}};await writeJson(join(root,'.ccpt/settings.json'),settings);await trustWorkspace(root);
+ const sets:string[]=[];for(const version of ['1.0.0','2.0.0']){const paths:string[]=[];for(const name of ['alpha','beta']){const path=join(root,'sources',version,name);await mkdir(path,{recursive:true});await writeJson(join(path,'plugin.json'),{name,version,contributes:{commands:[{name:`review-${name}`,description:name,prompt:version}]}});await cli(['plugin','sign',path,'--key-file',key,'--key-id','publisher']);paths.push(path);}const staged=await cli(['plugin-set','stage','--json',JSON.stringify(paths),'--confirm']);sets.push(staged.id);}
+ await cli(['plugin-set','activate',sets[0]!,'--expected-version','0','--confirm']);await writeJson(join(root,'.ccpt/settings.json'),{...settings,usePluginSets:true});
+ const verify=async(version:string)=>{const result=await cli(['plugin','verify']);if(!result.ok||result.loaded.length!==2||result.loaded.some((row:any)=>row.version!==version||!row.signatureVerified))throw new Error('Built Node did not load one coherent signed generation');};await verify('1.0.0');await cli(['plugin-set','activate',sets[1]!,'--expected-version','1','--confirm']);await verify('2.0.0');await cli(['plugin-set','rollback',sets[0]!,'--expected-version','2','--confirm']);await verify('1.0.0');
+ const current=await cli(['plugin-set','inspect']);if(current.current.version!==3)throw new Error('Unexpected pointer version');const report={pass:true,version:'0.62.0',runtime:'actual built Node CLI',checks:['two publisher-signed local plugins','stage inactive immutable generations','activate complete generation','loadPlatform/plugin verify follows active pointer','two-plugin update and rollback retain signatures','monotonic pointer version'],modelRequests:0,companyRequests:0,personalSettingsModified:false};await writeJson(join(project,'.ccpt/implementation-062/node/plugin-sets.json'),report);console.log(JSON.stringify(report,null,2));
+}finally{if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root);}

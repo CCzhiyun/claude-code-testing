@@ -1,0 +1,1 @@
+export const debugSkill = { name: 'debug', description: 'Diagnose a defect from evidence and verify the smallest complete fix.', instructions: 'Reproduce the failure, isolate the first incorrect state transition, inspect nearby tests and history, implement the smallest root-cause fix, add a regression test, and rerun focused plus relevant broader checks.' } as const;

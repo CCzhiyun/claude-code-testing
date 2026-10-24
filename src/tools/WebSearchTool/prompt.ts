@@ -1,0 +1,1 @@
+export const WEB_SEARCH_TOOL_NAME = 'WebSearch'; export function getWebSearchPrompt(): string { return 'Search using the enterprise-configured JSON search endpoint and return bounded attributed results.'; }

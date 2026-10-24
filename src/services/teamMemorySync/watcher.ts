@@ -1,0 +1,2 @@
+import { watch, type FSWatcher } from 'node:fs';
+export function watchTeamMemory(directory: string, onChange: (path: string) => void): FSWatcher { let timer: ReturnType<typeof setTimeout> | undefined; return watch(directory, { recursive: true }, (_event, fileName) => { if (!fileName) return; if (timer) clearTimeout(timer); timer = setTimeout(() => onChange(String(fileName).replaceAll('\\', '/')), 100); }); }

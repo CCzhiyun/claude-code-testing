@@ -1,0 +1,1 @@
+import type { BuiltInAgentDefinition } from '../loadAgentsDir.js'; export const GENERAL_PURPOSE_AGENT: BuiltInAgentDefinition = { agentType: 'general-purpose', whenToUse: 'Implement a bounded engineering task', systemPrompt: 'Complete the assigned goal, respect policy, verify the result, and report evidence.', source: 'built-in' };

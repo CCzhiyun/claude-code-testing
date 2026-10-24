@@ -1,0 +1,1 @@
+import type { Output } from './ExitWorktreeTool.js'; export function renderToolUseMessage(): string { return 'Exiting worktree'; } export function renderToolResultMessage(output: Output): string { return `${output.merged ? 'Merged and removed' : 'Removed'} ${output.path}`; }

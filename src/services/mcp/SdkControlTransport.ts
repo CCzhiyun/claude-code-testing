@@ -1,0 +1,2 @@
+import { EventEmitter } from 'node:events'; import type { JsonRpcMessage } from './types.js';
+export class SdkControlTransport extends EventEmitter { private closed = false; async send(message: JsonRpcMessage): Promise<void> { if (this.closed) throw new Error('SDK control transport is closed'); this.emit('send', structuredClone(message)); } receive(message: JsonRpcMessage): void { if (!this.closed) this.emit('message', structuredClone(message)); } close(): void { this.closed = true; this.emit('close'); } }

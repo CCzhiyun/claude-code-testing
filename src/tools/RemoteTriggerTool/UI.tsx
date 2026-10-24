@@ -1,0 +1,1 @@
+import type { Input, Output } from './RemoteTriggerTool.js'; export function renderToolUseMessage(input: Partial<Input>): string { return `Trigger ${input.url ?? 'remote endpoint'}`; } export function renderToolResultMessage(output: Output): string { return `Remote trigger returned ${output.status}`; }

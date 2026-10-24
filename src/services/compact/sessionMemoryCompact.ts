@@ -1,0 +1,2 @@
+import type { ModelMessage } from '../../types.js';
+export function compactSessionMemory(messages: ModelMessage[], maxChars = 40_000): string { const text = messages.map((message) => `${message.role}: ${typeof message.content === 'string' ? message.content : message.content.map((block) => block.text ?? block.content ?? block.name ?? '').join(' ')}`).join('\n').replace(/\s+/g, ' '); return text.slice(-maxChars); }

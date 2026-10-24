@@ -1,0 +1,7271 @@
+{
+  "generatedAt": "2026-09-02T16:59:18.903Z",
+  "referenceRoot": "C:\\Users\\55038\\Downloads\\claude-code-main\\claude-code-main\\src",
+  "total": 692,
+  "unmatched": 0,
+  "directories": {
+    "commands": {
+      "files": 207,
+      "families": {
+        "workspace": 14,
+        "core": 84,
+        "agents": 9,
+        "session": 23,
+        "configuration": 23,
+        "integration": 50,
+        "account": 4
+      }
+    },
+    "components": {
+      "files": 389,
+      "families": {
+        "agents": 35,
+        "core": 70,
+        "feedback": 41,
+        "design-system": 44,
+        "prompt": 29,
+        "tasks": 14,
+        "permissions": 56,
+        "selection": 27,
+        "messages": 58,
+        "mcp": 15
+      }
+    },
+    "ink": {
+      "files": 96,
+      "families": {
+        "renderer": 32,
+        "termio": 14,
+        "components": 18,
+        "events": 11,
+        "layout": 9,
+        "hooks": 12
+      }
+    }
+  },
+  "files": [
+    {
+      "reference": "commands/add-dir/add-dir.tsx",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/add-dir/index.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/add-dir/validation.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/advisor.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/agents/agents.tsx",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/agents/index.ts",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/ant-trace/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/autofix-pr/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/backfill-sessions/index.js",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/branch/branch.ts",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/branch/index.ts",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/break-cache/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/bridge-kick.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/bridge/bridge.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/bridge/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/brief.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/btw/btw.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/btw/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/bughunter/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/chrome/chrome.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/chrome/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/clear/caches.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/clear/clear.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/clear/conversation.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/clear/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/color/color.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/color/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/commit-push-pr.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/commit.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/compact/compact.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/compact/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/config/config.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/config/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/context/context-noninteractive.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/context/context.tsx",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/context/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/copy/copy.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/copy/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/cost/cost.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/cost/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/createMovedToPluginCommand.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/ctx_viz/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/debug-tool-call/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/desktop/desktop.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/desktop/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/diff/diff.tsx",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/diff/index.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/doctor/doctor.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/doctor/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/effort/effort.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/effort/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/env/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/exit/exit.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/exit/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/export/export.tsx",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/export/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/extra-usage/extra-usage-core.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/extra-usage/extra-usage-noninteractive.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/extra-usage/extra-usage.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/extra-usage/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/fast/fast.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/fast/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/feedback/feedback.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/feedback/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/files/files.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/files/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/good-claude/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/heapdump/heapdump.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/heapdump/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/help/help.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/help/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/hooks/hooks.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/hooks/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/ide/ide.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/ide/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/init-verifiers.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/init.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/insights.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/ApiKeyStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/CheckExistingSecretStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/CheckGitHubStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/ChooseRepoStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/CreatingStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/ErrorStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/ExistingWorkflowStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/InstallAppStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/OAuthFlowStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/SuccessStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/WarningsStep.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/install-github-app.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-github-app/setupGitHubActions.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-slack-app/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install-slack-app/install-slack-app.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/install.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/issue/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/keybindings/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/keybindings/keybindings.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/login/index.ts",
+      "directory": "commands",
+      "family": "account",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/login/login.tsx",
+      "directory": "commands",
+      "family": "account",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/logout/index.ts",
+      "directory": "commands",
+      "family": "account",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/logout/logout.tsx",
+      "directory": "commands",
+      "family": "account",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mcp/addCommand.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mcp/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mcp/mcp.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mcp/xaaIdpCommand.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/memory/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/memory/memory.tsx",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mobile/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mobile/mobile.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/mock-limits/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/model/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/model/model.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/oauth-refresh/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/onboarding/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/output-style/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/output-style/output-style.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/passes/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/passes/passes.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/perf-issue/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/permissions/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/permissions/permissions.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plan/index.ts",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plan/plan.tsx",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/AddMarketplace.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/BrowseMarketplace.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/DiscoverPlugins.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/ManageMarketplaces.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/ManagePlugins.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/PluginErrors.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/PluginOptionsDialog.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/PluginOptionsFlow.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/PluginSettings.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/PluginTrustWarning.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/UnifiedInstalledCell.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/ValidatePlugin.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/index.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/parseArgs.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/plugin.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/pluginDetailsHelpers.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/plugin/usePagination.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/pr_comments/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/privacy-settings/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/privacy-settings/privacy-settings.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rate-limit-options/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rate-limit-options/rate-limit-options.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/release-notes/index.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/release-notes/release-notes.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/reload-plugins/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/reload-plugins/reload-plugins.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/remote-env/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/remote-env/remote-env.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/remote-setup/api.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/remote-setup/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/remote-setup/remote-setup.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rename/generateSessionName.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rename/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rename/rename.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/reset-limits/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/resume/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/resume/resume.tsx",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/review.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/review/UltrareviewOverageDialog.tsx",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/review/reviewRemote.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/review/ultrareviewCommand.tsx",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/review/ultrareviewEnabled.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rewind/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/rewind/rewind.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/sandbox-toggle/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/sandbox-toggle/sandbox-toggle.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/security-review.ts",
+      "directory": "commands",
+      "family": "workspace",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/session/index.ts",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/session/session.tsx",
+      "directory": "commands",
+      "family": "session",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/share/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/skills/index.ts",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/skills/skills.tsx",
+      "directory": "commands",
+      "family": "integration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/stats/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/stats/stats.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/status/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/status/status.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/statusline.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/stickers/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/stickers/stickers.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/summary/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/tag/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/tag/tag.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/tasks/index.ts",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/tasks/tasks.tsx",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/teleport/index.js",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/terminalSetup/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/terminalSetup/terminalSetup.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/theme/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/theme/theme.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/thinkback-play/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/thinkback-play/thinkback-play.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/thinkback/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/thinkback/thinkback.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/ultraplan.tsx",
+      "directory": "commands",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/upgrade/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/upgrade/upgrade.tsx",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/usage/index.ts",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/usage/usage.tsx",
+      "directory": "commands",
+      "family": "configuration",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/version.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/vim/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/vim/vim.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/voice/index.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "commands/voice/voice.ts",
+      "directory": "commands",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/commands/",
+        "src/commands.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/AgentProgressLine.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/App.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ApproveApiKey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/AutoModeOptInDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/AutoUpdater.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/AutoUpdaterWrapper.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/AwsAuthStatusBox.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/BaseTextInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/BashModeProgress.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/BridgeDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/BypassPermissionsModeDialog.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ChannelDowngradeDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ClaudeCodeHint/PluginHintMenu.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ClaudeInChromeOnboarding.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ClaudeMdExternalIncludesDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ClickableImageRef.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CompactSummary.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ConfigurableShortcutHint.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ConsoleOAuthFlow.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ContextSuggestions.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ContextVisualization.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CoordinatorAgentStatus.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CostThresholdDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CtrlOToExpand.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/SelectMulti.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/index.ts",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/option-map.ts",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/select-input-option.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/select-option.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/select.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/use-multi-select-state.ts",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/use-select-input.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/use-select-navigation.ts",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/CustomSelect/use-select-state.ts",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/DesktopHandoff.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/DesktopUpsell/DesktopUpsellStartup.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/DevBar.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/DevChannelsDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/DiagnosticsDisplay.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/EffortCallout.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/EffortIndicator.ts",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ExitFlow.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ExportDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FallbackToolUseErrorMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FallbackToolUseRejectedMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FastIcon.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Feedback.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/FeedbackSurvey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/FeedbackSurveyView.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/TranscriptSharePrompt.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/submitTranscriptShare.ts",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/useDebouncedDigitInput.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/useFeedbackSurvey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/useMemorySurvey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/usePostCompactSurvey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FeedbackSurvey/useSurveyState.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FileEditToolDiff.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FileEditToolUpdatedMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FileEditToolUseRejectedMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FilePathLink.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/FullscreenLayout.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/GlobalSearchDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HelpV2/Commands.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HelpV2/General.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HelpV2/HelpV2.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HighlightedCode.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HighlightedCode/Fallback.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/HistorySearchDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/IdeAutoConnectDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/IdeOnboardingDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/IdeStatusIndicator.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/IdleReturnDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/InterruptedByUser.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/InvalidConfigDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/InvalidSettingsDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/KeybindingWarnings.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LanguagePicker.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogSelector.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/AnimatedAsterisk.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/AnimatedClawd.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/ChannelsNotice.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/Clawd.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/CondensedLogo.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/EmergencyTip.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/Feed.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/FeedColumn.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/GuestPassesUpsell.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/LogoV2.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/Opus1mMergeNotice.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/OverageCreditUpsell.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/VoiceModeNotice.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/WelcomeV2.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LogoV2/feedConfigs.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/LspRecommendation/LspRecommendationMenu.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MCPServerApprovalDialog.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MCPServerDesktopImportDialog.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MCPServerDialogCopy.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MCPServerMultiselectDialog.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ManagedSettingsSecurityDialog/ManagedSettingsSecurityDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ManagedSettingsSecurityDialog/utils.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Markdown.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MarkdownTable.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MemoryUsageIndicator.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Message.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MessageModel.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MessageResponse.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MessageRow.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MessageSelector.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/MessageTimestamp.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Messages.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ModelPicker.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/NativeAutoUpdater.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/NotebookEditToolUseRejectedMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/OffscreenFreeze.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Onboarding.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/OutputStylePicker.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PackageManagerAutoUpdater.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Passes/Passes.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PrBadge.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PressEnterToContinue.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/HistorySearchInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/IssueFlagBanner.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/Notifications.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputFooter.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputFooterLeftSide.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputFooterSuggestions.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputHelpMenu.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputModeIndicator.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputQueuedCommands.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/PromptInputStashNotice.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/SandboxPromptFooterHint.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/ShimmeredInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/VoiceIndicator.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/inputModes.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/inputPaste.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/useMaybeTruncateInput.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/usePromptInputPlaceholder.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/useShowFastIconHint.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/useSwarmBanner.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/PromptInput/utils.ts",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/QuickOpenDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/RemoteCallout.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/RemoteEnvironmentDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ResumeTask.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SandboxViolationExpandedView.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ScrollKeybindingHandler.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SearchBox.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SentryErrorBoundary.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SessionBackgroundHint.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SessionPreview.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Settings/Config.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Settings/Settings.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Settings/Status.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Settings/Usage.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ShowInIDEPrompt.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/SkillImprovementSurvey.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/FlashingChar.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/GlimmerMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/ShimmerChar.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/SpinnerAnimationRow.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/SpinnerGlyph.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/TeammateSpinnerLine.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/TeammateSpinnerTree.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/index.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/teammateSelectHint.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/useShimmerAnimation.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/useStalledAnimation.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Spinner/utils.ts",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/Stats.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StatusLine.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StatusNotices.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StructuredDiff.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StructuredDiff/Fallback.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StructuredDiff/colorDiff.ts",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/StructuredDiffList.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TagTabs.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TaskListV2.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeammateViewHeader.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeleportError.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeleportProgress.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeleportRepoMismatchDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeleportResumeWrapper.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TeleportStash.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TextInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ThemePicker.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ThinkingToggle.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TokenWarning.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ToolUseLoader.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TrustDialog/TrustDialog.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/TrustDialog/utils.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ValidationErrorsList.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/VimTextInput.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/VirtualMessageList.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/WorkflowMultiselectDialog.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/WorktreeExitDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/AgentDetail.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/AgentEditor.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/AgentNavigationFooter.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/AgentsList.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/AgentsMenu.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/ColorPicker.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/ModelSelector.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/ToolSelector.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/agentFileUtils.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/generateAgent.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/CreateAgentWizard.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/ColorStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/ConfirmStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/ConfirmStepWrapper.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/DescriptionStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/GenerateStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/LocationStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/MemoryStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/MethodStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/ModelStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/PromptStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/ToolsStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/new-agent-creation/wizard-steps/TypeStep.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/types.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/utils.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/agents/validateAgent.ts",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Byline.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Dialog.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Divider.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/FuzzyPicker.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/KeyboardShortcutHint.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/ListItem.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/LoadingState.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Pane.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/ProgressBar.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Ratchet.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/StatusIcon.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/Tabs.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/ThemeProvider.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/ThemedBox.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/ThemedText.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/design-system/color.ts",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/diff/DiffDetailView.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/diff/DiffDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/diff/DiffFileList.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/grove/Grove.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/HooksConfigMenu.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/PromptDialog.tsx",
+      "directory": "components",
+      "family": "prompt",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/SelectEventMode.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/SelectHookMode.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/SelectMatcherMode.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/hooks/ViewHookMode.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/CapabilitiesSection.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/ElicitationDialog.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPAgentServerMenu.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPListPanel.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPReconnect.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPRemoteServerMenu.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPSettings.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPStdioServerMenu.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPToolDetailView.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/MCPToolListView.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/McpParsingWarnings.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/index.ts",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/mcp/utils/reconnectHelpers.tsx",
+      "directory": "components",
+      "family": "mcp",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/memory/MemoryFileSelector.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/memory/MemoryUpdateNotification.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messageActions.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AdvisorMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AssistantRedactedThinkingMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AssistantTextMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AssistantThinkingMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AssistantToolUseMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/AttachmentMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/CollapsedReadSearchContent.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/CompactBoundaryMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/GroupedToolUseContent.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/HighlightedThinkingText.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/HookProgressMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/PlanApprovalMessage.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/RateLimitMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/ShutdownMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/SystemAPIErrorMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/SystemTextMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/TaskAssignmentMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserAgentNotificationMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserBashInputMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserBashOutputMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserChannelMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserCommandMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserImageMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserLocalCommandOutputMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserMemoryInputMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserPlanMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserPromptMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserResourceUpdateMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserTeammateMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserTextMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/RejectedPlanMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/RejectedToolUseMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/UserToolCanceledMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/UserToolErrorMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/UserToolRejectMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/UserToolResultMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/UserToolSuccessMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/UserToolResultMessage/utils.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/nullRenderingAttachments.ts",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/teamMemCollapsed.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/messages/teamMemSaved.ts",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/AskUserQuestionPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/PreviewBox.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/PreviewQuestionView.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/QuestionNavigationBar.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/QuestionView.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/SubmitQuestionsView.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/AskUserQuestionPermissionRequest/use-multiple-choice-state.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/BashPermissionRequest/BashPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/BashPermissionRequest/bashToolUseOptions.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/ComputerUseApproval/ComputerUseApproval.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/EnterPlanModePermissionRequest/EnterPlanModePermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/ExitPlanModePermissionRequest/ExitPlanModePermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FallbackPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FileEditPermissionRequest/FileEditPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilePermissionDialog/FilePermissionDialog.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilePermissionDialog/ideDiffConfig.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilePermissionDialog/permissionOptions.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilePermissionDialog/useFilePermissionDialog.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilePermissionDialog/usePermissionHandler.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FileWritePermissionRequest/FileWritePermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FileWritePermissionRequest/FileWriteToolDiff.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/FilesystemPermissionRequest/FilesystemPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/NotebookEditPermissionRequest/NotebookEditPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/NotebookEditPermissionRequest/NotebookEditToolDiff.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionDecisionDebugInfo.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionDialog.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionExplanation.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionPrompt.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionRequestTitle.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PermissionRuleExplanation.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PowerShellPermissionRequest/PowerShellPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/PowerShellPermissionRequest/powershellToolUseOptions.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/SandboxPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/SedEditPermissionRequest/SedEditPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/SkillPermissionRequest/SkillPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/WebFetchPermissionRequest/WebFetchPermissionRequest.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/WorkerBadge.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/WorkerPendingPermission.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/hooks.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/AddPermissionRules.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/AddWorkspaceDirectory.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/PermissionRuleDescription.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/PermissionRuleInput.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/PermissionRuleList.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/RecentDenialsTab.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/RemoveWorkspaceDirectory.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/rules/WorkspaceTab.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/shellPermissionHelpers.tsx",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/useShellPermissionFeedback.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/permissions/utils.ts",
+      "directory": "components",
+      "family": "permissions",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/sandbox/SandboxConfigTab.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/sandbox/SandboxDependenciesTab.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/sandbox/SandboxDoctorSection.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/sandbox/SandboxOverridesTab.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/sandbox/SandboxSettings.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/shell/ExpandShellOutputContext.tsx",
+      "directory": "components",
+      "family": "design-system",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/shell/OutputLine.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/shell/ShellProgressMessage.tsx",
+      "directory": "components",
+      "family": "messages",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/shell/ShellTimeDisplay.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/skills/SkillsMenu.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/AsyncAgentDetailDialog.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/BackgroundTask.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/BackgroundTaskStatus.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/BackgroundTasksDialog.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/DreamDetailDialog.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/InProcessTeammateDetailDialog.tsx",
+      "directory": "components",
+      "family": "agents",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/RemoteSessionDetailDialog.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/RemoteSessionProgress.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/ShellDetailDialog.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/ShellProgress.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/renderToolActivity.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/tasks/taskStatusUtils.tsx",
+      "directory": "components",
+      "family": "tasks",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/teams/TeamStatus.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/teams/TeamsDialog.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ui/OrderedList.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ui/OrderedListItem.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/ui/TreeSelect.tsx",
+      "directory": "components",
+      "family": "selection",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/wizard/WizardDialogLayout.tsx",
+      "directory": "components",
+      "family": "feedback",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/wizard/WizardNavigationFooter.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/wizard/WizardProvider.tsx",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/wizard/index.ts",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "components/wizard/useWizard.ts",
+      "directory": "components",
+      "family": "core",
+      "status": "partial",
+      "implementation": [
+        "src/components/",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/Ansi.tsx",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/bidi.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/clearTerminal.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/colorize.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/AlternateScreen.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/App.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/AppContext.ts",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Box.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Button.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/ClockContext.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/CursorDeclarationContext.ts",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/ErrorOverview.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Link.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Newline.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/NoSelect.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/RawAnsi.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/ScrollBox.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Spacer.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/StdinContext.ts",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/TerminalFocusContext.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/TerminalSizeContext.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/components/Text.tsx",
+      "directory": "ink",
+      "family": "components",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/constants.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/dom.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/click-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/dispatcher.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/emitter.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/event-handlers.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/focus-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/input-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/keyboard-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/terminal-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/events/terminal-focus-event.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/focus.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/frame.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/get-max-width.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hit-test.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-animation-frame.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-app.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-declared-cursor.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-input.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-interval.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-search-highlight.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-selection.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-stdin.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-tab-status.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-terminal-focus.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-terminal-title.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/hooks/use-terminal-viewport.ts",
+      "directory": "ink",
+      "family": "hooks",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/ink.tsx",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/instances.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/layout/engine.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/layout/geometry.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/layout/node.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/layout/yoga.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/line-width-cache.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/log-update.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/measure-element.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/measure-text.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/node-cache.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/optimizer.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/output.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/parse-keypress.ts",
+      "directory": "ink",
+      "family": "events",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/reconciler.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/render-border.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/render-node-to-output.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/render-to-screen.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/renderer.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/root.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/screen.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/searchHighlight.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/selection.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/squash-text-nodes.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/stringWidth.ts",
+      "directory": "ink",
+      "family": "layout",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/styles.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/supports-hyperlinks.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/tabstops.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/terminal-focus-state.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/terminal-querier.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/terminal.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/ansi.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/csi.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/dec.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/esc.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/osc.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/parser.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/sgr.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/tokenize.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/termio/types.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/useTerminalNotification.ts",
+      "directory": "ink",
+      "family": "termio",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/warn.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/widest-line.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/wrap-text.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    },
+    {
+      "reference": "ink/wrapAnsi.ts",
+      "directory": "ink",
+      "family": "renderer",
+      "status": "partial",
+      "implementation": [
+        "src/ink/",
+        "src/ink.ts",
+        "src/tui.ts"
+      ]
+    }
+  ]
+}

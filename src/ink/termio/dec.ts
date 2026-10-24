@@ -1,0 +1,12 @@
+import { CSI } from './ansi.js';
+const set = (code: number, enabled: boolean): string => `${CSI}?${code}${enabled ? 'h' : 'l'}`;
+export const HIDE_CURSOR = set(25, false);
+export const SHOW_CURSOR = set(25, true);
+export const ENTER_ALT_SCREEN = set(1049, true);
+export const EXIT_ALT_SCREEN = set(1049, false);
+export const ENABLE_MOUSE_TRACKING = `${set(1000, true)}${set(1006, true)}`;
+export const DISABLE_MOUSE_TRACKING = `${set(1006, false)}${set(1000, false)}`;
+export const ENABLE_BRACKETED_PASTE = set(2004, true);
+export const DISABLE_BRACKETED_PASTE = set(2004, false);
+export const SAVE_CURSOR = '\u001b7';
+export const RESTORE_CURSOR = '\u001b8';

@@ -1,0 +1,36 @@
+import {test,expect} from 'bun:test';
+import {mkdtemp,readFile,appendFile,unlink,mkdir} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {defaultConfig,validateConfig} from '../src/config.js';
+import {operationInput,beginToolOperation,finishToolOperation,resolveOperation,inspectOperation} from '../src/operationRecovery.js';
+import {queueRuntimeReplay,flushRuntimeReplay,runtimeReplay} from '../src/runtimeReplay.js';
+import {publishRuntimeEvent} from '../src/runtimeEvents.js';
+import {createSession} from '../src/sessions.js';
+import {removeOwnedTemporaryFixture} from './fixtureCleanup.js';
+async function fixture(action:(root:string,c:typeof defaultConfig)=>Promise<void>){const root=await mkdtemp(join(tmpdir(),'ccpt-business069-')),old=process.env.CCPT_HOME;process.env.CCPT_HOME=join(root,'home');const c=structuredClone(defaultConfig);c.hooks=[];c.policy.workspaceRoots=[root];try{await action(root,c)}finally{await flushRuntimeReplay();if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root)}}
+const agent='agent_1111111111111111',session='session_1111111111111111';
+test('business key blocks duplicate effects across call IDs, Agents, sessions and concurrent claims',()=>fixture(async(root,c)=>{
+ c.mcpServers.payments={transport:'http',url:'https://payments.example.invalid/mcp',operationRecovery:{charge:{idempotencyArgument:'idempotency_key',statusTool:'query',businessScope:'payments-v1',businessKeyFields:['order_id']}}};validateConfig(c);
+ const context={cwd:root,config:c,sessionId:session,agentId:agent,depth:0,operationId:'first'},input={server:'payments',tool:'charge',arguments:{order_id:'PRIVATE_ORDER',amount:10}};const bound=operationInput(context,'mcp_call',input),idempotency=(bound.arguments as any).idempotency_key;
+ expect(JSON.stringify(bound)).toContain('operation_');const rows=await Promise.allSettled(Array.from({length:8},(_,i)=>beginToolOperation({...context,operationId:'call-'+i,agentId:`agent_${String(i).padStart(16,'0')}`,sessionId:`session_${String(i).padStart(16,'0')}`},'mcp_call',bound)));expect(rows.filter(r=>r.status==='fulfilled')).toHaveLength(1);
+ const row=rows.find(r=>r.status==='fulfilled')! as PromiseFulfilledResult<NonNullable<Awaited<ReturnType<typeof beginToolOperation>>>>;expect(row.value.id).toBe(idempotency);await finishToolOperation(context,row.value,'charged',true);
+ const second={...context,operationId:'new-call'};expect((operationInput(second,'mcp_call',input).arguments as any).idempotency_key).toBe(idempotency);await expect(beginToolOperation(second,'mcp_call',operationInput(second,'mcp_call',input))).rejects.toThrow('do not replay');
+ await expect(beginToolOperation(context,'mcp_call',operationInput(context,'mcp_call',{...input,arguments:{order_id:'PRIVATE_ORDER',amount:11}}))).rejects.toThrow('different arguments');const state=await readFile(join(root,'.ccpt/operations',idempotency+'.json'),'utf8');expect(state).not.toContain('PRIVATE_ORDER');
+}));
+test('only explicit manual not-applied reconciliation permits the same business identity to continue',()=>fixture(async(root,c)=>{
+ c.mcpServers.test={transport:'http',url:'https://example.invalid',operationRecovery:{write:{idempotencyArgument:'request_id',statusTool:'query',businessScope:'orders',businessKeyFields:['order']}}};const a={cwd:root,config:c,sessionId:session,agentId:agent,depth:0,operationId:'one'},raw={server:'test',tool:'write',arguments:{order:12}};const row=(await beginToolOperation(a,'mcp_call',operationInput(a,'mcp_call',raw)))!;await resolveOperation(root,row.id,row.version,'not_applied','Operator checked the actual server');const b={...a,sessionId:'session_2222222222222222',agentId:'agent_2222222222222222',operationId:'two'};const next=(await beginToolOperation(b,'mcp_call',operationInput(b,'mcp_call',raw)))!;expect(next.id).toBe(row.id);expect(next.agentId).toBe(b.agentId);expect(next.version).toBe(3);expect((await inspectOperation(root,row.id)).phase).toBe('claimed');
+ for(const value of [undefined,{},[],0.5,''])expect(()=>operationInput(a,'mcp_call',{...raw,arguments:{order:value}})).toThrow();c.mcpServers.test.operationRecovery!.write!.businessKeyFields=['__proto__'];expect(()=>validateConfig(c)).toThrow('business');
+}));
+test('replay captures explicit plaintext delta boundaries, survives index loss, paginates and never captures reasoning',()=>fixture(async(root,c)=>{
+ const s=await createSession('fixture',root),p={mode:'verbatim' as const,acknowledgement:'I_ACCEPT_LOCAL_PLAINTEXT_TRANSCRIPTS' as const};c.runtimeReplay=p;validateConfig(c);
+ for(const delta of ['你','好\r\n','world'])queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'text_delta',turn:1,delta}),p);
+ queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'thinking_delta',turn:1,delta:'HIDDEN_REASONING'}),p);await flushRuntimeReplay();const file=join(process.env.CCPT_HOME!,'runtime-replay',s.id+'.jsonl');await unlink(file+'.index.json');const first=await runtimeReplay(root,s.id,undefined,2,true);expect(first.items.map(r=>r.text)).toEqual(['你','好\r\n']);expect(first.exactText).toBe(true);expect(first.hasMore).toBe(true);expect((await runtimeReplay(root,s.id,first.cursor,2,true)).items[0]!.text).toBe('world');expect(await readFile(file,'utf8')).not.toContain('HIDDEN_REASONING');expect((await runtimeReplay(root,s.id)).items.every(r=>r.text===undefined)).toBe(true);
+ const foreign=join(root,'other');await mkdir(foreign);await expect(runtimeReplay(foreign,s.id)).rejects.toThrow('another workspace');
+}));
+test('metadata/redacted replay keeps secrets and split live chunks out of default journal',()=>fixture(async(root,c)=>{
+ const s=await createSession('fixture',root);const p={mode:'redacted' as const};queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'text_delta',turn:1,delta:'fixture-'}),p);queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'text_delta',turn:1,delta:'secret'}),p);queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'assistant_message',turn:1,text:'api_key=fixture-secret'}),p,['fixture-secret']);await flushRuntimeReplay();const text=await readFile(join(process.env.CCPT_HOME!,'runtime-replay',s.id+'.jsonl'),'utf8');expect(text).not.toContain('fixture-');expect(text).not.toContain('fixture-secret');expect((await runtimeReplay(root,s.id,undefined,100,true)).exactText).toBe(false);c.runtimeReplay={mode:'verbatim'} as any;expect(()=>validateConfig(c)).toThrow('acknowledgement');
+}));
+test('bounded capture reports a durable gap; torn tails are never erased or silently replayed',()=>fixture(async(root)=>{
+ const s=await createSession('fixture',root),p={mode:'metadata' as const,maxEvents:1};for(let i=0;i<2;i++)queueRuntimeReplay(publishRuntimeEvent({agentId:agent,sessionId:s.id,type:'turn_started',turn:i}),p);await flushRuntimeReplay();const page=await runtimeReplay(root,s.id);expect(page.items).toHaveLength(1);expect(page.captureFailure).toBe(true);const file=join(process.env.CCPT_HOME!,'runtime-replay',s.id+'.jsonl');await appendFile(file,'{"torn":');await expect(runtimeReplay(root,s.id)).rejects.toThrow('torn');expect((await readFile(file,'utf8')).endsWith('{"torn":')).toBe(true);
+}));

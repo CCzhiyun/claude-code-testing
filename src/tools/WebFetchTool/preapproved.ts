@@ -1,0 +1,1 @@
+export const PREAPPROVED_HOSTS = new Set(['developer.mozilla.org', 'docs.github.com', 'nodejs.org', 'www.typescriptlang.org', 'npmjs.com']); export function isPreapprovedHost(hostname: string, pathname: string): boolean { return PREAPPROVED_HOSTS.has(hostname.toLowerCase()) && !pathname.includes('..'); }

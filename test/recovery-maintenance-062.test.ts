@@ -1,0 +1,29 @@
+import {test,expect} from 'bun:test';
+import {mkdtemp,mkdir,writeFile,readFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {defaultConfig} from '../src/config.js';
+import {writeJson} from '../src/storage.js';
+import {trustWorkspace} from '../src/workspaceTrust.js';
+import {recordRecoveryAge,planRecoveryMaintenance,runRecoveryMaintenance,prepareRecoveryRemote,runRecoveryRemote,queryRecoveryRemote} from '../src/recoveryMaintenance.js';
+import {removeOwnedTemporaryFixture} from './fixtureCleanup.js';
+async function fixture(action:(root:string,config:typeof defaultConfig,git:(...args:string[])=>string,refs:string[])=>Promise<void>){
+ const root=await mkdtemp(join(tmpdir(),'ccpt-retention-062-')),old=process.env.CCPT_HOME;process.env.CCPT_HOME=join(root,'home');const git=(...args:string[])=>execFileSync('git',args,{cwd:root,encoding:'utf8',windowsHide:true,stdio:['ignore','pipe','pipe']}).trim();
+ try{git('init');git('config','user.name','Fixture');git('config','user.email','fixture@example.invalid');await writeFile(join(root,'file.txt'),'fixture');git('add','file.txt');git('commit','-m','base');const oid=git('rev-parse','HEAD'),refs=Array.from({length:4},(_,i)=>`refs/ccpt/recovery/agent_${String(i).padStart(16,'0')}/save_${String(i).padStart(16,'0')}`);for(const ref of refs)git('update-ref',ref,oid);
+  const config=structuredClone(defaultConfig);config.hooks=[];config.policy.workspaceRoots=[root];config.recoveryMaintenance={enabled:true,retentionDays:7,minKeep:1,maxPrunePerRun:2};await trustWorkspace(root);for(let i=0;i<3;i++){await recordRecoveryAge(root,refs[i]!,oid);const key=createHash('sha256').update(JSON.stringify(refs[i])).digest('hex');await writeJson(join(root,'.ccpt/recovery-maintenance/refs',key+'.json'),{format:1,ref:refs[i],commit:oid,createdAt:new Date(Date.now()-(30+i)*86400000).toISOString()});}await action(root,config,git,refs);
+ }finally{if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root);}
+}
+test('retention keeps newest and unknown-age refs, publishes complete backup before atomic reviewed pruning',()=>fixture(async(root,config,git,refs)=>{
+ const plan=await planRecoveryMaintenance(root,config);expect(plan.candidates).toHaveLength(2);expect(plan.rows.find(row=>row.ref===refs[3])!.reason).toBe('unknown-age');await expect(runRecoveryMaintenance(root,plan.digest,false,config)).rejects.toThrow('confirmation');const result=await runRecoveryMaintenance(root,plan.digest,true,config);expect(result.removed).toHaveLength(2);expect(git('show-ref',refs[0]!)).toContain(refs[0]!);expect(git('show-ref',refs[3]!)).toContain(refs[3]!);expect(await readFile(join(result.backup!.directory,'manifest.json'),'utf8')).toContain('sha256');await expect(runRecoveryMaintenance(root,plan.digest,true,config)).rejects.toThrow('changed');
+}),15000);
+test('retention refuses stale policy/ref views and preserves sole unpublished commits regardless of age',()=>fixture(async(root,config,git,refs)=>{
+ const initial=await planRecoveryMaintenance(root,config);config.recoveryMaintenance!.retentionDays=8;await expect(runRecoveryMaintenance(root,initial.digest,true,config)).rejects.toThrow('changed');const tree=git('rev-parse','HEAD^{tree}');const orphan=execFileSync('git',['commit-tree',tree,'-m','unpublished'],{cwd:root,encoding:'utf8',windowsHide:true}).trim();git('update-ref',refs[1]!,orphan);const key=createHash('sha256').update(JSON.stringify(refs[1])).digest('hex');await writeJson(join(root,'.ccpt/recovery-maintenance/refs',key+'.json'),{format:1,ref:refs[1],commit:orphan,createdAt:'2020-01-01T00:00:00.000Z'});const plan=await planRecoveryMaintenance(root,config);expect(plan.rows.find(row=>row.ref===refs[1])!.reason).toBe('sole-recovery-ref');
+}),15000);
+test('remote backup requires opt-in, exact pinned destination, human confirmation, and never overwrites an existing backup ref',()=>fixture(async(root,config,git)=>{
+ const bare=join(root,'temporary-bare.git');git('init','--bare',bare);git('remote','add','fixture',bare);config.recoveryRemote={remote:'fixture',expectedUrl:bare};await expect(prepareRecoveryRemote(root,true,config)).rejects.toThrow('disabled');config.policy.allowGitPush=true;await expect(prepareRecoveryRemote(root,false,config)).rejects.toThrow('confirm');const plan=await prepareRecoveryRemote(root,true,config);expect(plan.phase).toBe('prepared');await expect(runRecoveryRemote(root,plan.id,plan.digest,false,config)).rejects.toThrow('confirm');const done=await runRecoveryRemote(root,plan.id,plan.digest,true,config);expect(done.phase).toBe('completed');await expect(runRecoveryRemote(root,plan.id,plan.digest,true,config)).rejects.toThrow('already attempted');expect((await queryRecoveryRemote(root,plan.id,true,config)).phase).toBe('completed');
+ const rejected=await prepareRecoveryRemote(root,true,config);execFileSync('git',['--git-dir',bare,'update-ref',rejected.refs[0]!.target,rejected.refs[0]!.commit],{windowsHide:true});await expect(runRecoveryRemote(root,rejected.id,rejected.digest,true,config)).rejects.toThrow('already exists');expect((await queryRecoveryRemote(root,rejected.id,true,config)).phase).toBe('prepared');
+ const unknown=await prepareRecoveryRemote(root,true,config);execFileSync('git',['--git-dir',bare,'config','receive.advertiseAtomic','false'],{windowsHide:true});await expect(runRecoveryRemote(root,unknown.id,unknown.digest,true,config)).rejects.toThrow('unknown');expect((await queryRecoveryRemote(root,unknown.id,true,config)).phase).toBe('unknown');await expect(runRecoveryRemote(root,unknown.id,unknown.digest,true,config)).rejects.toThrow('already attempted');
+ git('remote','set-url','--push','fixture',join(root,'different.git'));await expect(prepareRecoveryRemote(root,true,config)).rejects.toThrow('URL changed');
+}),25000);

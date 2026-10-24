@@ -1,0 +1,2 @@
+export interface WidthNode { width?: number; maxWidth?: number; children?: readonly WidthNode[] }
+export default function getMaxWidth(node: WidthNode, available: number): number { const constrained = Math.min(Math.max(0, available), node.maxWidth ?? Number.POSITIVE_INFINITY); if (node.width !== undefined) return Math.min(constrained, Math.max(0, node.width)); return Math.min(constrained, Math.max(0, ...(node.children ?? []).map((child) => getMaxWidth(child, constrained)))); }

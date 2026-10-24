@@ -1,0 +1,24 @@
+{
+  "model": {
+    "apiProtocol": "messages",
+    "name": "YOUR_MODEL_OR_DEPLOYMENT",
+    "baseUrl": "",
+    "endpointUrl": "https://gateway.example/v1/messages",
+    "apiKeyEnv": "CCPT_MESSAGES_API_KEY",
+    "apiKeyHeader": "x-api-key",
+    "apiKeyPrefix": "",
+    "headersFromEnvironment": {},
+    "thinkingEnabled": false,
+    "fastMode": false,
+    "chatToolReasoning": "preserve",
+    "responsesStore": false,
+    "responsesTextFormat": null,
+    "completionTokenField": "max_tokens",
+    "maxContextTokens": 128000,
+    "maxOutputTokens": 8192
+  },
+  "marketplaceEnabled": false,
+  "network": {
+    "rejectUnauthorized": true
+  }
+}

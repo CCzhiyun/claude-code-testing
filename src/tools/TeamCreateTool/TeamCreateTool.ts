@@ -1,0 +1,2 @@
+import { createTeam } from '../../teamStore.js'; import type { ToolContext, ToolDefinition } from '../../types.js'; import { TEAM_CREATE_TOOL_NAME } from './constants.js'; import { TEAM_CREATE_DESCRIPTION } from './prompt.js';
+export const TeamCreateTool: ToolDefinition = { name: TEAM_CREATE_TOOL_NAME, description: TEAM_CREATE_DESCRIPTION, input_schema: { type: 'object', properties: { name: { type: 'string' } }, required: ['name'] } }; export const executeTeamCreate = (input: { name: string }, context: ToolContext) => createTeam(input.name, context.agentId);

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "approved": false,
+  "inventoryDigest": "REPLACE_WITH_REVIEWED_INVENTORY_DIGEST",
+  "reviewedBy": "",
+  "reviewedAt": "",
+  "distributionScope": "internal",
+  "approvedRegistry": "https://your-approved-registry.example/",
+  "sourceRightsEvidence": [],
+  "dependenciesReviewed": false,
+  "noticeReviewed": false,
+  "embeddedCertificatesReviewed": false
+}

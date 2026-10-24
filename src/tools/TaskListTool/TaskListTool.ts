@@ -1,0 +1,2 @@
+import { listTasks } from '../../tasks.js'; import type { ToolContext, ToolDefinition } from '../../types.js'; import { TASK_LIST_TOOL_NAME } from './constants.js'; import { TASK_LIST_DESCRIPTION } from './prompt.js';
+export const TaskListTool: ToolDefinition = { name: TASK_LIST_TOOL_NAME, description: TASK_LIST_DESCRIPTION, input_schema: { type: 'object', properties: {} } }; export const executeTaskList = (_input: Record<string, never>, context: ToolContext) => listTasks(context.teamSessionId ?? context.sessionId);

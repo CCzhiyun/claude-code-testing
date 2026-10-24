@@ -1,0 +1,2 @@
+import type { ModelMessage } from '../types.js'; import { buildSessionMemory } from './SessionMemory/sessionMemory.js';
+export function generateAwaySummary(messages: ModelMessage[]): string | null { if (!messages.length) return null; const memory = buildSessionMemory(messages.slice(-30), 2_000); const next = memory.decisions.at(-1) ?? memory.summary.split('\n').at(-1) ?? ''; return `当前任务上下文已保留。下一步：${next.replace(/^(?:user|assistant):\s*/, '').slice(0, 300)}`; }

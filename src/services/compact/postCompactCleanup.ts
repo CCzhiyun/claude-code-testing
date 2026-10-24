@@ -1,0 +1,2 @@
+import type { ModelMessage } from '../../types.js';
+export function postCompactCleanup(messages: ModelMessage[]): ModelMessage[] { const seenSummaries = new Set<string>(); return messages.filter((message) => { if (typeof message.content !== 'string' || !message.content.startsWith('[Earlier conversation summary]')) return true; if (seenSummaries.has(message.content)) return false; seenSummaries.add(message.content); return true; }); }

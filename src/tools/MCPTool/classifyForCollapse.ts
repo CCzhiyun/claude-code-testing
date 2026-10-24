@@ -1,0 +1,1 @@
+export function classifyMcpToolForCollapse(name: string, output: unknown): 'compact' | 'expanded' { const size = typeof output === 'string' ? output.length : JSON.stringify(output).length; return /search|list|read/i.test(name) && size < 4_000 ? 'compact' : 'expanded'; }

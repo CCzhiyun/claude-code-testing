@@ -1,0 +1,3 @@
+export interface NotificationOptions { message: string; title?: string; notificationType: string }
+export interface TerminalNotification { notifyBell(): void; write?(value: string): void }
+export async function sendNotification(notification: NotificationOptions, terminal: TerminalNotification, channel: 'auto' | 'terminal_bell' | 'osc9' | 'disabled' = 'auto'): Promise<string> { if (channel === 'disabled') return 'disabled'; if ((channel === 'osc9' || channel === 'auto') && terminal.write) { const message = notification.message.replace(/[\x00-\x1f\x7f]/g, ' ').slice(0, 1_000); terminal.write(`\x1b]9;${message}\x07`); return 'osc9'; } terminal.notifyBell(); return 'terminal_bell'; }

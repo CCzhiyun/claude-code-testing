@@ -1,0 +1,2 @@
+import type { ModelMessage } from '../../types.js';
+export function groupMessagesByApiRound(messages: ModelMessage[]): ModelMessage[][] { const groups: ModelMessage[][] = []; let current: ModelMessage[] = []; for (const message of messages) { if (message.role === 'assistant' && current.some((item) => item.role === 'assistant')) { groups.push(current); current = []; } current.push(message); } if (current.length) groups.push(current); return groups; }

@@ -1,0 +1,1 @@
+import type { ToolDefinition } from '../../types.js'; export function getReplPrimitiveTools(): readonly ToolDefinition[] { return [{ name: 'repl_print', description: 'Print a bounded value in REPL mode.', input_schema: { type: 'object', properties: { value: {} }, required: ['value'] } }]; }

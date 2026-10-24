@@ -1,0 +1,3 @@
+let lastFingerprint: string | undefined;
+export function detectPromptCacheBreak(system: string, toolNames: string[]): { changed: boolean; reason?: string } { const fingerprint = `${system.length}:${toolNames.join(',')}`; const changed = lastFingerprint !== undefined && lastFingerprint !== fingerprint; const reason = changed ? (system.length !== Number(lastFingerprint?.split(':')[0]) ? 'system-prompt-changed' : 'tool-set-changed') : undefined; lastFingerprint = fingerprint; return { changed, ...(reason ? { reason } : {}) }; }
+export function resetPromptCacheBreakDetection(): void { lastFingerprint = undefined; }

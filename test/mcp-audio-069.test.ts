@@ -1,0 +1,22 @@
+import {test,expect} from 'bun:test';
+import {mkdtemp} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {defaultConfig} from '../src/config.js';
+import {createMcpModelSampling} from '../src/mcpModelSampling.js';
+import {handleMcpInteraction} from '../src/mcpInteraction.js';
+import {removeOwnedTemporaryFixture} from './fixtureCleanup.js';
+const data=Buffer.from('RIFFfixtureWAVEfmt ').toString('base64'),request={messages:[{role:'user',content:[{type:'text',text:'Describe this audio'},{type:'audio',mimeType:'audio/wav',data}]}],maxTokens:32};
+async function fixture(action:(c:typeof defaultConfig,requests:any[])=>Promise<void>){const root=await mkdtemp(join(tmpdir(),'ccpt-audio069-')),old=process.env.CCPT_HOME;process.env.CCPT_HOME=join(root,'home');const requests:any[]=[];const server=Bun.serve({port:0,async fetch(r){requests.push(await r.json());return Response.json({choices:[{message:{content:'fixture audio description'},finish_reason:'stop'}],usage:{prompt_tokens:20,completion_tokens:4}})}});const c=structuredClone(defaultConfig);c.hooks=[];c.model.apiProtocol='chat-completions';c.model.endpointUrl=`http://127.0.0.1:${server.port}/chat/completions`;c.model.apiKeyEnv='';c.model.audioInputFormats=['wav','mp3'];c.model.thinkingEnabled=false;c.model.maxContextTokens=4096;c.model.maxOutputTokens=64;c.network={allowedHosts:['127.0.0.1'],rejectUnauthorized:true,timeoutMs:3000};try{await action(c,requests)}finally{server.stop(true);if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root)}}
+test('explicit audio sampling sends Chat input_audio and shares only after two approvals',()=>fixture(async(c,requests)=>{
+ const phases:string[]=[],runtime=createMcpModelSampling(c,{maxRequests:2,maxReservedTokens:10000,audio:true},async phase=>{phases.push(phase);return true},{audio:true});const response:any=await handleMcpInteraction('sampling/createMessage',request,runtime.handlers,new AbortController().signal);expect(response.result.content[0].text).toBe('fixture audio description');expect(phases).toEqual(['request','share']);expect(requests[0].messages[1].content[1]).toEqual({type:'input_audio',input_audio:{data,format:'wav'}});expect((await runtime.status()).requests).toBe(1);
+}));
+test('audio requires server, invocation and model capability; missing capability never makes HTTP',()=>fixture(async(c,requests)=>{
+ expect(()=>createMcpModelSampling(c,{maxRequests:1,maxReservedTokens:5000},async()=>true,{audio:true})).toThrow('samplingBudget.audio');const disabled=createMcpModelSampling(c,{maxRequests:1,maxReservedTokens:5000,audio:true},async()=>true,{tools:false});expect(await handleMcpInteraction('sampling/createMessage',request,disabled.handlers,new AbortController().signal)).toHaveProperty('error');delete c.model.audioInputFormats;const unapproved=createMcpModelSampling(c,{maxRequests:1,maxReservedTokens:5000,audio:true},async()=>true,{audio:true});expect(await handleMcpInteraction('sampling/createMessage',request,unapproved.handlers,new AbortController().signal)).toHaveProperty('error');expect(requests).toHaveLength(0);
+}));
+test('Responses and unsupported audio formats are rejected, never routed to a guessed Chat URL',()=>fixture(async(c,requests)=>{
+ c.model.apiProtocol='responses';const runtime=createMcpModelSampling(c,{maxRequests:2,maxReservedTokens:10000,audio:true},async()=>true,{audio:true});expect(await handleMcpInteraction('sampling/createMessage',request,runtime.handlers,new AbortController().signal)).toHaveProperty('error');c.model.apiProtocol='chat-completions';const ogg={...request,messages:[{role:'user',content:{type:'audio',mimeType:'audio/ogg',data}}]};expect(await handleMcpInteraction('sampling/createMessage',ogg,runtime.handlers,new AbortController().signal)).toHaveProperty('error');expect(requests).toHaveLength(0);
+}));
+test('declining the share decision with audio does not expose generated text',()=>fixture(async(c,requests)=>{
+ const runtime=createMcpModelSampling(c,{maxRequests:1,maxReservedTokens:5000,audio:true},async phase=>phase==='request',{audio:true});const response=await handleMcpInteraction('sampling/createMessage',request,runtime.handlers,new AbortController().signal);expect(response).toHaveProperty('error');expect(JSON.stringify(response)).not.toContain('fixture audio description');expect(requests).toHaveLength(1);
+}));

@@ -1,0 +1,3 @@
+export interface TipContext { sessions: number; hasGit: boolean; configuredModel: boolean; usedSkills: boolean }
+export interface Tip { id: string; content: string; cooldownSessions: number; relevant(context: TipContext): boolean }
+export const TIPS: readonly Tip[] = Object.freeze([{ id: 'verify', content: '运行 /verify 检查验收条件和测试证据。', cooldownSessions: 5, relevant: () => true }, { id: 'skills', content: '可在当前受信任工作区 .ccpt/skills 中创建项目 Skill。', cooldownSessions: 10, relevant: (context: TipContext) => !context.usedSkills }, { id: 'git-worktree', content: '可用隔离 Worktree 并行处理独立任务。', cooldownSessions: 10, relevant: (context: TipContext) => context.hasGit && context.sessions > 3 }]);

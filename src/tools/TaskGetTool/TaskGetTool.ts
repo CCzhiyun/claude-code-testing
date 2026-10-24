@@ -1,0 +1,2 @@
+import { loadTask } from '../../tasks.js'; import type { ToolDefinition } from '../../types.js'; import { TASK_GET_TOOL_NAME } from './constants.js'; import { TASK_GET_DESCRIPTION } from './prompt.js';
+export const TaskGetTool: ToolDefinition = { name: TASK_GET_TOOL_NAME, description: TASK_GET_DESCRIPTION, input_schema: { type: 'object', properties: { task_id: { type: 'string' } }, required: ['task_id'] } }; export const executeTaskGet = (input: { task_id: string }) => loadTask(input.task_id);

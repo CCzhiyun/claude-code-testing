@@ -1,0 +1,76 @@
+import { expect, test } from 'bun:test';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import tls from 'node:tls';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { defaultConfig } from '../src/config.js';
+import { writeJson } from '../src/storage.js';
+import { workspaceTrustKey } from '../src/workspaceTrust.js';
+import { removeOwnedTemporaryFixture } from './fixtureCleanup.js';
+
+test('terminal compacts and exports full history without API calls, blocks active edits and displays real request breakdown', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'ccpt-terminal-context-'));
+  const state = join(root, 'state'); const requests: any[] = [];
+  const caFile = join(root, 'corporate ca.per');
+  await writeFile(caFile, tls.rootCertificates[0]!);
+  let release!: () => void;
+  const gate = new Promise<void>((resolveGate) => { release = resolveGate; });
+  const server = Bun.serve({ port: 0, async fetch(request) {
+    requests.push(await request.json()); await gate;
+    return Response.json({ choices: [{ message: { content: 'CONTEXT-GREETING-DONE' } }], usage: { prompt_tokens: 432, completion_tokens: 15 } });
+  } });
+  const config = structuredClone(defaultConfig);
+  config.model.provider = 'compatible'; config.model.baseUrl = `http://127.0.0.1:${server.port}/v1`;
+  config.network = { allowedHosts: ['127.0.0.1'], rejectUnauthorized: true, timeoutMs: 15000 };
+  config.policy.workspaceRoots = [root]; config.agents.defaultIsolation = 'none';
+  config.pluginDirectories = []; config.skillsDirectories = []; config.agentsDirectories = []; config.hooks = [];
+  await writeJson(join(root, '.ccpt', 'settings.json'), config); await writeJson(join(state, 'settings.json'), config);
+  await writeJson(join(state, 'workspace-trust.json'), { version: 1, workspaces: { [workspaceTrustKey(root)]: { trustedAt: new Date().toISOString() } } });
+  const id = 'session_0000000000000009';
+  const messages = Array.from({ length: 24 }, (_, index) => ({ role: index % 2 ? 'assistant' : 'user', content: `Original ${index}: ${'Keep this history. '.repeat(50)}` }));
+  await writeJson(join(state, 'sessions', `${id}.json`), { id, cwd: root, title: 'Context fixture', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(), messages });
+  const entry = pathToFileURL(resolve(import.meta.dir, '../src/tui.ts')).href;
+  const script = `Object.defineProperty(process.stdin,'isTTY',{value:true}); process.stdin.setRawMode=()=>process.stdin; Object.defineProperty(process.stdout,'columns',{value:120}); Object.defineProperty(process.stdout,'rows',{value:42}); const {runTui}=await import(${JSON.stringify(entry)}); await runTui(process.cwd(),'fixture'); process.exit(0);`;
+  const env: Record<string, string> = { CCPT_HOME: state, CCPT_API_KEY: 'fixture-only', CCPT_CLI_ENTRY: resolve(import.meta.dir, '../src/cli.ts'), DISABLE_AUTOUPDATER: '1', NO_COLOR: '1' };
+  for (const name of ['PATH', 'Path', 'SystemRoot', 'SYSTEMROOT', 'COMSPEC', 'TEMP', 'TMP', 'USERPROFILE']) if (process.env[name]) env[name] = process.env[name]!;
+  const child = Bun.spawn([process.execPath, '-e', script], { cwd: root, env, stdin: 'pipe', stdout: 'pipe', stderr: 'pipe' });
+  let output = '';
+  const collect = async (stream: ReadableStream<Uint8Array>) => { for await (const chunk of stream) output += new TextDecoder().decode(chunk); };
+  const pumps = Promise.all([collect(child.stdout), collect(child.stderr)]);
+  const until = async (marker: string) => {
+    const deadline = Date.now() + 15000;
+    while (!output.includes(marker) && Date.now() < deadline) await Bun.sleep(30);
+    expect(output.includes(marker), `Missing terminal marker: ${marker}\n${output.slice(-4000)}`).toBe(true); output = '';
+  };
+  const send = (keys: string) => { child.stdin.write(keys); child.stdin.flush(); };
+  try {
+    await until('/model to change');
+    send('/config\r'); await until('Type to filter'); send('Marketplace\r'); await until('Space change'); send(' \r'); await until('Settings saved.');
+    expect(JSON.parse(await readFile(join(root, '.ccpt', 'settings.json'), 'utf8')).marketplaceEnabled).toBe(false);
+    send('/plugin\r'); await until('Marketplace is disabled');
+    send('/config\r'); await until('Type to filter'); send('Custom CA\r'); await until('Space change'); send(' '); await until('Edit: Custom CA');
+    send('\u0015'); send(caFile); send('\r'); await until('Space change'); send('\r'); await until('Settings saved.');
+    expect(JSON.parse(await readFile(join(root, '.ccpt', 'settings.json'), 'utf8')).network.caFile).toBe(caFile);
+    send(`/resume ${id}\r`); await until('Resumed: Context fixture');
+    send('/compact\r'); await until('Context compacted:');
+    const compacted = JSON.parse(await readFile(join(state, 'sessions', `${id}.json`), 'utf8'));
+    expect(compacted.messages.length).toBeLessThan(messages.length); expect(compacted.archivedMessages.length).toBeGreaterThan(0);
+    send('/export full.json\r'); await until('Session exported to');
+    expect(JSON.parse(await readFile(join(root, 'full.json'), 'utf8')).messages).toEqual(messages);
+    send('/export full.json\r'); await until('Export file already exists');
+    expect(requests).toHaveLength(0);
+    send('Hello 你好\r');
+    const deadline = Date.now() + 10000;
+    while (!requests.length && Date.now() < deadline) await Bun.sleep(30);
+    expect(requests).toHaveLength(1);
+    send('/compact\r'); await until('Session is active');
+    send('/rename Unsafe rename\r'); await until('Session is active');
+    release(); await until('CONTEXT-GREETING-DONE');
+    send('/context\r'); await until('Output reserve:');
+    expect(requests).toHaveLength(1);
+    const saved = JSON.parse(await readFile(join(state, 'sessions', `${id}.json`), 'utf8'));
+    expect(saved.title).toBe('Context fixture'); expect(saved.contextSnapshot.tools).toBe(0);
+    send('/exit\r'); await Promise.race([child.exited, Bun.sleep(3000)]);
+  } finally { release(); child.kill(); await child.exited; await pumps; server.stop(true); await removeOwnedTemporaryFixture(root); }
+}, 60000);

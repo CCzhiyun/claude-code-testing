@@ -1,0 +1,3 @@
+import { EventEmitter } from 'node:events';
+import { encodeStructuredMessage, StructuredMessageDecoder, type StructuredMessage } from './structuredIO.js';
+export class RemoteIO extends EventEmitter { private decoder = new StructuredMessageDecoder(); constructor(readonly input: NodeJS.ReadableStream, readonly output: NodeJS.WritableStream) { super(); input.on('data', (chunk) => { try { for (const message of this.decoder.push(chunk as Buffer)) this.emit('message', message); } catch (error) { this.emit('error', error); } }); input.on('end', () => { try { this.decoder.end(); this.emit('end'); } catch (error) { this.emit('error', error); } }); } send(message: StructuredMessage): void { this.output.write(encodeStructuredMessage(message)); } }

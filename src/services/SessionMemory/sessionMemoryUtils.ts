@@ -1,0 +1,3 @@
+import type { ModelMessage } from '../../types.js';
+export function messageText(message: ModelMessage): string { return typeof message.content === 'string' ? message.content : message.content.map((block) => block.text ?? block.content ?? (block.name ? `[tool:${block.name}]` : '')).filter(Boolean).join('\n'); }
+export function sessionMemoryFingerprint(messages: ModelMessage[]): string { const text = messages.map(messageText).join('\n').replace(/\s+/g, ' ').trim(); let hash = 2166136261; for (const character of text) hash = Math.imul(hash ^ character.charCodeAt(0), 16777619); return (hash >>> 0).toString(16).padStart(8, '0'); }

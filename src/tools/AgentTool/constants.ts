@@ -1,0 +1,1 @@
+export const AGENT_TOOL_NAME = 'Agent' as const; export const LEGACY_AGENT_TOOL_NAME = 'Task' as const; export const VERIFICATION_AGENT_TYPE = 'verification'; export const ONE_SHOT_BUILTIN_AGENT_TYPES: ReadonlySet<string> = new Set(['explore', 'plan', 'verification', 'claude-code-guide']);

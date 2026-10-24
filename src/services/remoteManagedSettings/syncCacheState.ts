@@ -1,0 +1,1 @@
+export class SyncCacheState { private active: Promise<unknown> | undefined; run<T>(operation: () => Promise<T>): Promise<T> { if (this.active) return this.active as Promise<T>; const promise = operation().finally(() => { this.active = undefined; }); this.active = promise; return promise; } get syncing(): boolean { return Boolean(this.active); } }

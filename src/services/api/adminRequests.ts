@@ -1,0 +1,2 @@
+import type { PlatformConfig } from '../../types.js'; import { ApiClient } from './client.js';
+export function adminRequest<T>(baseUrl: string, token: string, path: string, network: PlatformConfig['network'], body?: unknown): Promise<T> { if (!token) throw new Error('Admin credential is required'); return new ApiClient(baseUrl, network, token).json(path, { method: body === undefined ? 'GET' : 'POST', ...(body !== undefined ? { body } : {}) }); }

@@ -1,0 +1,1 @@
+export const REMOTE_TRIGGER_TOOL_NAME = 'RemoteTrigger'; export const DESCRIPTION = 'Call an explicitly configured remote trigger endpoint'; export const PROMPT = 'Send a bounded JSON payload to the configured remote endpoint. Authentication is injected in-process.';

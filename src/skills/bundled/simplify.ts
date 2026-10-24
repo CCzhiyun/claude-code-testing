@@ -1,0 +1,1 @@
+export const simplifySkill = { name: 'simplify', description: 'Reduce accidental code complexity without changing behavior.', instructions: 'Identify duplication, unnecessary abstractions, and hard-to-follow control flow. Make small semantic-preserving changes, keep public interfaces stable, and prove behavior with existing plus focused regression tests.' } as const;

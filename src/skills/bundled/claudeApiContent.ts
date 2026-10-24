@@ -1,0 +1,1 @@
+export const modelApiInstructions = 'Inspect the configured compatible model endpoint and existing SDK adapters before changing API code. Keep credentials environment-backed, preserve proxy/TLS/allowlist policy, validate response shapes, and add a local protocol test.';

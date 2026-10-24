@@ -1,0 +1,1 @@
+import type { Output } from './ExitPlanModeV2Tool.js'; export function renderToolUseMessage(): string { return 'Submitting plan'; } export function renderToolResultMessage(output: Output): string { return output.plan; } export function renderToolUseRejectedMessage(): string { return 'Plan was not approved'; }

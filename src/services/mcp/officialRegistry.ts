@@ -1,0 +1,3 @@
+import type { PlatformConfig } from '../../types.js'; import { networkJson } from '../../network.js';
+export interface RegistryServer { name: string; description: string; config: Record<string, unknown> }
+export async function fetchMcpRegistry(url: string, network: PlatformConfig['network']): Promise<RegistryServer[]> { const response = await networkJson<{ servers?: unknown }>(url, {}, network); if (response.status !== 200 || !Array.isArray(response.value.servers)) throw new Error('Invalid MCP registry response'); return response.value.servers.filter((item): item is RegistryServer => Boolean(item && typeof item === 'object' && typeof (item as RegistryServer).name === 'string')); }

@@ -1,0 +1,4 @@
+import { ndjsonSafeStringify } from './ndjsonSafeStringify.js';
+export interface StructuredMessage { type: string; id?: string; data?: unknown }
+export const encodeStructuredMessage = (message: StructuredMessage): string => `${ndjsonSafeStringify(message)}\n`;
+export class StructuredMessageDecoder { private buffer = ''; push(chunk: string | Buffer): StructuredMessage[] { this.buffer += chunk.toString(); const lines = this.buffer.split(/\r?\n/); this.buffer = lines.pop() ?? ''; return lines.filter((line) => line.trim()).map((line) => { const value = JSON.parse(line) as unknown; if (!value || typeof value !== 'object' || typeof (value as Record<string, unknown>).type !== 'string') throw new Error('Invalid structured message'); return value as StructuredMessage; }); } end(): void { if (this.buffer.trim()) throw new Error('Incomplete structured message'); } }

@@ -1,0 +1,2 @@
+export function supportsHyperlinks(environment: NodeJS.ProcessEnv = process.env): boolean { if (environment.FORCE_HYPERLINK === '0' || environment.NO_COLOR !== undefined || environment.TERM === 'dumb') return false; if (environment.FORCE_HYPERLINK === '1') return true; return Boolean(environment.WT_SESSION || environment.TERM_PROGRAM || environment.VTE_VERSION || environment.COLORTERM || /xterm|screen|tmux/i.test(environment.TERM ?? '')); }
+export default supportsHyperlinks;

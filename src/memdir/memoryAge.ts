@@ -1,0 +1,2 @@
+export function memoryAgeDays(updatedAt: string, now = Date.now()): number { const timestamp = Date.parse(updatedAt); if (!Number.isFinite(timestamp)) throw new Error('Invalid memory timestamp'); return Math.max(0, (now - timestamp) / 86_400_000); }
+export function recencyScore(updatedAt: string, halfLifeDays = 30, now = Date.now()): number { if (halfLifeDays <= 0) throw new Error('Memory half-life must be positive'); return 2 ** (-memoryAgeDays(updatedAt, now) / halfLifeDays); }

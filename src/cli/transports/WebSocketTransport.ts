@@ -1,0 +1,2 @@
+import { SessionsWebSocket, type SessionsWebSocketOptions } from '../../remote/SessionsWebSocket.js';
+export class WebSocketTransport { private socket: SessionsWebSocket; constructor(url: string, options: SessionsWebSocketOptions = {}) { this.socket = new SessionsWebSocket(url, options); } connect(): void { this.socket.connect(); } send(value: unknown): void { this.socket.send(value); } close(): void { this.socket.close(); } }

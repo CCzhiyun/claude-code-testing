@@ -1,0 +1,3 @@
+import { readTipHistory, writeTipHistory } from './tipHistory.js';
+import { TIPS, type Tip, type TipContext } from './tipRegistry.js';
+export async function nextTip(context: TipContext): Promise<Tip | undefined> { const history = await readTipHistory(); history.session += 1; const eligible = TIPS.filter((tip) => tip.relevant(context) && history.session - (history.shown[tip.id] ?? -Infinity) >= tip.cooldownSessions); const selected = eligible[history.session % Math.max(1, eligible.length)]; if (selected) history.shown[selected.id] = history.session; await writeTipHistory(history); return selected; }

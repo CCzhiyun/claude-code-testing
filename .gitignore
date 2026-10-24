@@ -1,0 +1,12 @@
+node_modules/
+.npm-cache/
+.pack-smoke/
+dist/
+.ccpt/
+.ccpt-worktrees/
+*.tgz
+*.log
+releases/
+.reference-*/
+.pack-smoke-*/
+.tmp-*/

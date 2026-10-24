@@ -1,0 +1,2 @@
+export interface GroveEvent { name: string; timestamp: string; properties: Record<string, string | number | boolean> }
+export class GroveBuffer { private events: GroveEvent[] = []; add(name: string, properties: GroveEvent['properties'] = {}): void { this.events.push({ name, timestamp: new Date().toISOString(), properties }); this.events = this.events.slice(-1_000); } drain(limit = 100): GroveEvent[] { return this.events.splice(0, Math.max(1, Math.min(limit, 1_000))); } }

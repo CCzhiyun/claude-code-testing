@@ -1,0 +1,3 @@
+import { callMcpServer, configuredMcpServers, inspectMcpServer } from '../../mcp.js';
+import type { PlatformConfig } from '../../types.js';
+export async function handleMcp(config: PlatformConfig, action: 'list' | 'inspect' | 'call', server?: string, tool?: string, input: Record<string, unknown> = {}): Promise<unknown> { if (action === 'list') return configuredMcpServers(config); if (!server) throw new Error('MCP server name is required'); if (action === 'inspect') return inspectMcpServer(config, server); if (!tool) throw new Error('MCP tool name is required'); return callMcpServer(config, server, tool, input); }

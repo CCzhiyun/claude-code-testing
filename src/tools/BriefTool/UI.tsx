@@ -1,0 +1,1 @@
+import type { Output } from './BriefTool.js'; export function renderToolUseMessage(input: { message?: string }): string { return input.message ?? 'Send message'; } export function renderToolResultMessage(output: Output): string { return `${output.message}${output.attachments.length ? `\nAttachments: ${output.attachments.map((item) => item.name).join(', ')}` : ''}`; }

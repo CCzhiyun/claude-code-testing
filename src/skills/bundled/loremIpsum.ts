@@ -1,0 +1,1 @@
+export const loremIpsumSkill = { name: 'placeholder-content', description: 'Generate clearly marked placeholder content for layout testing.', instructions: 'Use short, obviously synthetic copy that matches the requested shape. Do not present placeholder facts as real data, and keep labels stable so snapshot tests remain deterministic.' } as const;

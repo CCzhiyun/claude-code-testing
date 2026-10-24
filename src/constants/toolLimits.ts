@@ -1,0 +1,2 @@
+export const MAX_TOOL_RESULT_CHARS = 100_000;
+export const MAX_TOOL_NAME_LENGTH = 128;

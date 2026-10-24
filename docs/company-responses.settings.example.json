@@ -1,0 +1,27 @@
+{
+  "model": {
+    "provider": "openai",
+    "apiProtocol": "responses",
+    "responsesTransport": "native",
+    "chatToolReasoning": "preserve",
+    "endpointUrl": "https://tss-aicode-sit.ccptazure.biz:8053/responses/v1/responses",
+    "baseUrl": "",
+    "name": "gpt-6-luna",
+    "apiKeyEnv": "AZURE_OPENAI_API_KEY",
+    "apiKeyHeader": "api-key",
+    "apiKeyPrefix": "",
+    "headersFromEnvironment": {},
+    "maxContextTokens": 128000,
+    "maxOutputTokens": 4096,
+    "thinkingEnabled": true,
+    "reasoningEffort": "high",
+    "fastMode": false,
+    "responsesStore": false,
+    "responsesTextFormat": null
+  },
+  "network": {
+    "rejectUnauthorized": true,
+    "timeoutMs": 30000
+  },
+  "marketplaceEnabled": false
+}

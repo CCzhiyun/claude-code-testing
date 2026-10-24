@@ -1,0 +1,2 @@
+import { createServer } from 'node:net';
+export async function findAvailableOAuthPort(preferred?: number): Promise<number> { return new Promise((resolve, reject) => { const server = createServer(); server.once('error', reject); server.listen(preferred ?? 0, '127.0.0.1', () => { const address = server.address(); if (!address || typeof address === 'string') { reject(new Error('OAuth listener has no port')); return; } server.close((error) => error ? reject(error) : resolve(address.port)); }); }); }

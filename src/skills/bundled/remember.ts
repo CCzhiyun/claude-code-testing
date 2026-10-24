@@ -1,0 +1,1 @@
+export const rememberSkill = { name: 'remember', description: 'Store a concise durable project memory.', instructions: 'Record only stable project facts, decisions, constraints, and verified commands. Exclude credentials and transient guesses. Use a descriptive title and tags, cite the relevant project path, and update an existing memory instead of duplicating it.' } as const;

@@ -1,0 +1,6 @@
+import type { ModelMessage, SessionRecord } from '../../types.js';
+import { compactSession } from '../../sessions.js';
+export interface CompactionResult { session: SessionRecord; removedMessages: number; archivedMessages: number }
+export function stripImagesFromMessages(messages: ModelMessage[]): ModelMessage[] { return messages.map((message) => typeof message.content === 'string' ? structuredClone(message) : { ...message, content: message.content.map((block) => { const value = block as ContentBlockWithMedia; if (value.type === 'image') return { type: 'text' as const, text: '[image]' }; if (value.type === 'document') return { type: 'text' as const, text: '[document]' }; return structuredClone(block); }) }); }
+export function compact(session: SessionRecord, maxTokens: number): CompactionResult { const before = session.messages.length; const next = compactSession(structuredClone(session), maxTokens); return { session: next, removedMessages: Math.max(0, before - next.messages.filter((message) => !(typeof message.content === 'string' && message.content.startsWith('[Earlier conversation summary]'))).length), archivedMessages: next.archivedMessages?.length ?? 0 }; }
+interface ContentBlockWithMedia { type: string; [key: string]: unknown }

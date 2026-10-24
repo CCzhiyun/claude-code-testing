@@ -1,0 +1,836 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CCPT connection settings",
+  "description": "Model/network editor hints. Other platform settings remain supported; runtime validates the complete merged configuration.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "messageDisplay": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "message",
+            "lines"
+          ]
+        },
+        "linesPerBatch": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 1
+        },
+        "maxBatches": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256,
+          "default": 128
+        }
+      },
+      "description": "Display only. Stable message_id and zero-based index; final only on last batch. Failure or overflow falls back to the complete canonical message. Default is one complete message."
+    },
+    "spending": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "description": "Optional persistent local account shared across CLI processes using the same CCPT_HOME. Session AND account are charged; no automatic refunds of unknown outcomes. Not an enterprise server-side limit."
+        },
+        "maxRequests": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxTokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxCostUsd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "prices": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "inputPerMillion",
+              "outputPerMillion"
+            ],
+            "properties": {
+              "inputPerMillion": {
+                "type": "number",
+                "minimum": 0
+              },
+              "outputPerMillion": {
+                "type": "number",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "schedulerManagers": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "systemctl": {
+          "type": "string",
+          "description": "Nonstandard absolute systemctl path. Canonical executable SHA-256 is bound at prepare; native hosts require root-owned, non-group/world-writable executable and parents."
+        },
+        "launchctl": {
+          "type": "string",
+          "description": "Nonstandard absolute launchctl path; same ownership/hash binding. Changed executables require a new reviewed job."
+        }
+      }
+    },
+    "hooks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "watchPaths": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "description": "FileChanged only: explicit relative filenames, no glob or links. Authorized updates reset baselines."
+          },
+          "watchDirectories": {
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "required": [
+                "path"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1024
+                },
+                "recursive": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "maxFiles": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 512,
+                  "default": 256
+                },
+                "maxDepth": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 16,
+                  "default": 8
+                },
+                "exclude": {
+                  "type": "array",
+                  "maxItems": 32,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  }
+                }
+              }
+            },
+            "description": "FileChanged only, workspace-relative literal directories/exclusion prefixes, never follows links. Always excludes .git/.ccpt/node_modules. Whole scan: at most 512 files, 256 directories, 2048 entries; overflow retains the baseline and blocks that scan. Metadata polling is not lossless change capture."
+          }
+        }
+      }
+    },
+    "mcpServers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "samplingBudget": {
+            "type": "object",
+            "required": [
+              "maxRequests",
+              "maxReservedTokens"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "maxRequests": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "maxReservedTokens": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000000000
+              },
+              "tools": {
+                "type": "boolean",
+                "default": false
+              },
+              "audio": {
+                "type": "boolean",
+                "default": false
+              }
+            },
+            "description": "Interactive sampling ceiling, not approval. Full input window+maximum output reserved before each HTTP attempt, unknown costs retained. Tools also require --interactive-tools; server tools never execute locally."
+          },
+          "elicitationOrigins": {
+            "type": "array",
+            "maxItems": 32,
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Exact HTTPS origins allowed for separately confirmed URL elicitation. Not a grant to open a URL, submit credentials, or approve completion."
+          },
+          "resumePostSse": {
+            "type": "boolean",
+            "default": false,
+            "description": "Opt-in cursor GET continuation of interrupted POST SSE. Never replays the tool POST."
+          },
+          "operationRecovery": {
+            "type": "object",
+            "maxProperties": 100,
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "idempotencyArgument",
+                "statusTool"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "idempotencyArgument": {
+                  "type": "string"
+                },
+                "statusTool": {
+                  "type": "string"
+                },
+                "compensateTool": {
+                  "type": "string"
+                },
+                "operationArgument": {
+                  "type": "string"
+                },
+                "businessScope": {
+                  "type": "string"
+                },
+                "businessKeyFields": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 8,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "dependentRequired": {
+                "businessScope": [
+                  "businessKeyFields"
+                ],
+                "businessKeyFields": [
+                  "businessScope"
+                ]
+              }
+            },
+            "description": "Administrator-declared connector contract. Business identity selects bounded scalar arguments; only hashes persist. Same identity cannot replay with a new call/session/Agent ID. Unknown outcomes require explicit reconciliation, never automatic refunds or guessed compensation."
+          }
+        }
+      }
+    },
+    "recoveryMaintenance": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "retentionDays",
+        "minKeep",
+        "maxPrunePerRun"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "automatic": {
+          "type": "boolean",
+          "default": false
+        },
+        "retentionDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3650
+        },
+        "minKeep": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 128
+        },
+        "maxPrunePerRun": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        }
+      },
+      "description": "Explicit local retention opt-in. Automatic runs only after managed worktree cleanup; unknown-age/sole-retaining refs are kept, complete bundle precedes atomic Git ref transaction. No automatic remote upload."
+    },
+    "recoveryRemote": {
+      "type": "object",
+      "required": [
+        "remote",
+        "expectedUrl"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "remote": {
+          "type": "string"
+        },
+        "expectedUrl": {
+          "type": "string"
+        },
+        "transport": {
+          "enum": [
+            "ssh-wrapper"
+          ]
+        },
+        "launcherDependencies": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          },
+          "description": "Explicit absolute helper/config/known_hosts files or recursive trees. Up to 256 files/32 MiB; no links. Path/hash/size binding invalidates old receipts when declared file content or membership changes. Not a whole-OS/DLL dependency graph."
+        }
+      },
+      "description": "Pinned Git remote; local or HTTPS, or explicit ssh://user@host/repository with ssh-wrapper. SSH requires an absolute enterprise processWrapper and explicit allowed host; receipt pins executable path+SHA-256 and is checked before launcher execution. Launcher must enforce SSH host keys/authentication/noninteractive/network policy. Unknown pushes are queried, never replayed."
+    },
+    "usePluginSets": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use an explicitly staged/activated immutable project plugin generation. Atomic pointer CAS switches plugin bytes and receipts together. Missing/tampered active generation fails closed; current trust is rechecked on rollback."
+    },
+    "pluginOverlays": {
+      "type": "object",
+      "description": "Independently Ed25519-signed additive contributions bound to the original signed plugin name/version/digest. Does not make Marketplace installation/receipts atomic."
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "osSandbox": {
+          "enum": [
+            "linux-bubblewrap"
+          ],
+          "description": "Opt-in Linux command/stdio/synchronous Hook isolation via /usr/bin/bwrap. Network and .git/.ccpt are hidden; unsupported OS/backend fails closed. Not an accepted escape-proof enterprise sandbox."
+        }
+      }
+    },
+    "runtimeHistory": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "metadata",
+            "redacted"
+          ],
+          "default": "metadata"
+        },
+        "maxTextChars": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64000,
+          "default": 16000
+        }
+      },
+      "description": "Explicit opt-in for bounded locally persisted redacted message/tool text. Does not store reasoning or provider continuation payloads; cannot guarantee recognition of unknown secrets."
+    },
+    "disableBundledSkills": {
+      "type": "boolean",
+      "default": false
+    },
+    "skillOverrides": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "on",
+          "name-only",
+          "user-invocable-only",
+          "off"
+        ]
+      },
+      "description": "Skill catalogue/slash visibility; alias policies combine conservatively and cannot relax frontmatter or managed restrictions."
+    },
+    "skillModes": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "auto",
+          "manual",
+          "disabled"
+        ]
+      }
+    },
+    "agentDefinitions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "description",
+          "prompt"
+        ],
+        "properties": {
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string"
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "disallowedTools": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "memory": {
+            "enum": [
+              "user",
+              "project",
+              "local"
+            ]
+          },
+          "isolation": {
+            "enum": [
+              "none",
+              "worktree"
+            ]
+          },
+          "permissionMode": {
+            "enum": [
+              "normal",
+              "acceptEdits",
+              "sandbox",
+              "restricted",
+              "bypass"
+            ]
+          },
+          "background": {
+            "type": "boolean"
+          },
+          "maxTurns": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "toolFilter": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "^[\\w.:-]+$"
+      },
+      "description": "Exact tool names; [] disables tools, null restores the default catalog subject to Agent and managed policy restrictions."
+    },
+    "mcpCredentialBackend": {
+      "enum": [
+        "file",
+        "windows-dpapi",
+        "macos-keychain",
+        "linux-secret-service"
+      ],
+      "default": "file",
+      "description": "Explicit OS credential store; protected/native backends never fall back to plaintext. Native stores require the matching OS and limit each entry to 5000 bytes."
+    },
+    "contextCompaction": {
+      "type": "object",
+      "description": "Optional paid automatic semantic summary. Manual compact remains local.",
+      "properties": {
+        "quality": {
+          "type": "object", "additionalProperties": false, "required": ["requiredTerms"],
+          "properties": {
+            "requiredTerms": {"type":"array","minItems":1,"maxItems":64,"uniqueItems":true,"items":{"type":"string","minLength":1,"maxLength":256}},
+            "minimumCoverage":{"type":"number","minimum":0,"maximum":1,"default":1}
+          },
+          "description":"Literal anchors present in the redacted source must meet coverage in the proposed semantic handoff. Failure preserves the already-persisted extractive checkpoint and archive; not semantic equivalence or zero-loss proof."
+        },
+        "mode": {
+          "enum": [
+            "extractive",
+            "semantic"
+          ],
+          "default": "extractive"
+        },
+        "maxInputTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000,
+          "default": 32000
+        },
+        "maxOutputTokens": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8000,
+          "default": 1500
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120000,
+          "default": 30000
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "credentialBackend": {
+          "enum": [
+            "windows-dpapi",
+            "macos-keychain",
+            "linux-secret-service"
+          ],
+          "default": "windows-dpapi"
+        },
+        "tokenizer": {
+          "enum": [
+            "cl100k_base",
+            "o200k_base"
+          ],
+          "description": "Explicit local text BPE. Model aliases are not inferred; JSON framing/images/files remain estimates, not exact provider input or billing tokens."
+        },
+        "tokenizerVocabulary": {
+          "type": "object",
+          "required": [
+            "file",
+            "sha256",
+            "patternEncoding"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "file": {
+              "type": "string",
+              "description": "Absolute non-link local JSON with js-tiktoken packed bpe_ranks and optional validated special_tokens, at most 16 MiB. Custom patternEncoding also requires pat_str."
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{64}$"
+            },
+            "patternEncoding": {
+              "enum": [
+                "cl100k_base",
+                "o200k_base",
+                "custom"
+              ]
+            },
+            "specialTokenMode": {
+              "enum": [
+                "ordinary",
+                "allowed"
+              ],
+              "default": "ordinary"
+            },
+            "timeoutMs": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 30000,
+              "default": 5000
+            }
+          },
+          "description": "Pinned local packed BPE including optional validated special_tokens. Custom mode additionally accepts bounded pat_str and counts in a credential-free child with a hard timeout. File hash is checked before cache use. No promise of model framing, billing or multimodal equivalence."
+        },
+        "contextFraming": {
+          "type": "object",
+          "required": [
+            "baseTokens",
+            "perMessageTokens",
+            "perToolTokens"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "baseTokens": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "perMessageTokens": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "perToolTokens": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            }
+          },
+          "description": "Additional conservative reserve on top of serialized text count, never a replacement for provider billing. Included in >=90% warning and >95% automatic compaction decisions."
+        },
+        "inputTokenCounting": {
+          "type":["object","null"],"additionalProperties":false,"required":["mode"],
+          "properties":{"mode":{"const":"responses"},"onError":{"enum":["stop","estimate"],"default":"stop"},"timeoutMs":{"type":"integer","minimum":100,"maximum":30000,"default":10000}},
+          "description":"Opt-in native Responses input_tokens preflight on the same endpoint/auth/CA/proxy, before 90/95 pressure decisions. Disables previous_response_id chaining for reproducible full input. Each count consumes a request and conservative input-token budget; not provider billing. Unsupported default stops, explicit estimate fallback is labeled."
+        },
+        "apiProtocol": {
+          "type": "string",
+          "enum": [
+            "messages",
+            "responses",
+            "chat-completions"
+          ],
+          "description": "Wire format independent of model name or hosting platform; overrides legacy provider."
+        },
+        "provider": {
+          "type": "string",
+          "enum": [
+            "openai",
+            "compatible",
+            "anthropic"
+          ],
+          "description": "openai defaults to Responses. compatible/anthropic retain explicit legacy adapters. Prefer explicit apiProtocol."
+        },
+        "responsesTransport": {
+          "type": "string",
+          "enum": [
+            "native",
+            "chat-completions"
+          ],
+          "default": "native",
+          "description": "Explicit vendor bridge only; native uses the actual Responses wire protocol. No automatic fallback."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Model ID or enterprise deployment name supplied by your administrator."
+        },
+        "endpointUrl": {
+          "type": "string",
+          "description": "Complete HTTP(S) inference endpoint including any api-version query; used exactly as specified."
+        },
+        "baseUrl": {
+          "type": "string",
+          "description": "Base path used only when endpointUrl is empty."
+        },
+        "apiKeyEnv": {
+          "type": "string",
+          "description": "Environment variable NAME, never the credential itself."
+        },
+        "credentialRef": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,99}$",
+          "description": "Windows DPAPI model credential reference, endpoint-bound. Set apiKeyEnv to an empty string."
+        },
+        "apiKeyHeader": {
+          "type": "string"
+        },
+        "apiKeyPrefix": {
+          "type": "string"
+        },
+        "headersFromEnvironment": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "thinkingEnabled": {
+          "type": "boolean"
+        },
+        "reasoningEffort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        "chatToolReasoning": {
+          "enum": [
+            "preserve",
+            "none",
+            "omit",
+            "responses-only"
+          ]
+        },
+        "completionTokenField": {
+          "enum": [
+            "max_tokens",
+            "max_completion_tokens"
+          ]
+        },
+        "responsesStore": {
+          "type": "boolean",
+          "default": false
+        },
+        "responsesTextFormat": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "maxContextTokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxOutputTokens": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "audioInputFormats": {
+          "type": "array",
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "wav",
+              "mp3"
+            ]
+          },
+          "description": "Explicit audio-capable Chat Completions deployment input only; no endpoint inference. MCP additionally needs server samplingBudget.audio and --interactive-audio with two approvals."
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "caFile": {
+          "type": "string"
+        },
+        "proxyUrl": {
+          "type": "string"
+        },
+        "clientCertFile": {
+          "type": "string"
+        },
+        "clientKeyFile": {
+          "type": "string"
+        },
+        "rejectUnauthorized": {
+          "type": "boolean"
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "allowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "marketplaceEnabled": {
+      "type": "boolean"
+    },
+    "runtimeReplay": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "metadata",
+            "redacted",
+            "verbatim"
+          ]
+        },
+        "acknowledgement": {
+          "const": "I_ACCEPT_LOCAL_PLAINTEXT_TRANSCRIPTS"
+        },
+        "maxBytes": {
+          "type": "integer",
+          "minimum": 4096,
+          "maximum": 67108864,
+          "default": 8388608
+        },
+        "maxEvents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200000,
+          "default": 50000
+        },
+        "maxTextChars": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000,
+          "default": 64000
+        }
+      },
+      "description": "Explicit passive local journal. Verbatim needs plaintext acknowledgement. Reasoning excluded; no actions replayed; bounded capacity reports a capture gap, never silently resets or erases torn tails."
+    },
+    "pluginRollout": {
+      "type": "object",
+      "required": [
+        "allowedVersions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "allowedVersions": {
+          "type": "object",
+          "maxProperties": 32,
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 32,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allowRemovals": {
+          "type": "boolean",
+          "default": false
+        },
+        "maxApprovalMinutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1440,
+          "default": 30
+        },
+        "checkOnStartup": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "Exact-version signed distribution channel. Mutations require expiring reviewed receipts, including rollback. Startup checks are local only and disable legacy auto-download/update."
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export function formatFileReadResult(result: { content: string; totalLines: number; truncated: boolean }): string { return `${result.content}${result.truncated ? `\n… truncated (${result.totalLines} total lines)` : ''}`; }

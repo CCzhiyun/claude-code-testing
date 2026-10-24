@@ -1,0 +1,24 @@
+{
+  "$schema": "./settings.schema.json",
+  "model": {
+    "provider": "openai",
+    "apiProtocol": "responses",
+    "responsesTransport": "chat-completions",
+    "name": "glm-5.3-flash",
+    "baseUrl": "https://open.bigmodel.cn/api/paas/v4",
+    "endpointUrl": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+    "apiKeyEnv": "OPENAI_API_KEY",
+    "apiKeyHeader": "authorization",
+    "apiKeyPrefix": "Bearer ",
+    "headersFromEnvironment": {},
+    "completionTokenField": "max_tokens",
+    "thinkingEnabled": false,
+    "chatToolReasoning": "omit",
+    "maxContextTokens": 128000,
+    "maxOutputTokens": 8192,
+    "responsesStore": false,
+    "responsesTextFormat": null
+  },
+  "marketplaceEnabled": false,
+  "network": { "rejectUnauthorized": true, "timeoutMs": 60000 }
+}

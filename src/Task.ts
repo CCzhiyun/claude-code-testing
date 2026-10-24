@@ -1,0 +1,1 @@
+export abstract class Task<T> { private controller = new AbortController(); abstract run(signal: AbortSignal): Promise<T>; start(): Promise<T> { return this.run(this.controller.signal); } stop(): void { this.controller.abort(); } get signal(): AbortSignal { return this.controller.signal; } }

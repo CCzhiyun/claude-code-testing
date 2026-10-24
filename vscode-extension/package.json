@@ -1,0 +1,34 @@
+{
+  "name": "ccpt-vscode",
+  "displayName": "CCPT",
+  "description": "CCPT coding Agent, sessions, background tasks and Focus View.",
+  "version": "0.72.0",
+  "publisher": "ccpt",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Machine Learning", "Other"],
+  "activationEvents": ["onCommand:ccpt.open", "onView:ccpt.agents"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "ccpt.open", "title": "CCPT: Open Agent Panel" },
+      { "command": "ccpt.refreshAgents", "title": "CCPT: Refresh Agents" },
+      { "command": "ccpt.cancelAgent", "title": "CCPT: Cancel Agent" },
+      { "command": "ccpt.resumeSession", "title": "CCPT: Resume Session" },
+      { "command": "ccpt.openSessionHistory", "title": "CCPT: View Saved Conversation" },
+      { "command": "ccpt.reviewPlan", "title": "CCPT: Review Plan" },
+      { "command": "ccpt.goalRuns", "title": "CCPT: Goal Workflows (Prepare / Review / Start)" },
+      { "command": "ccpt.resolveConflict", "title": "CCPT: Resolve Git Conflict (Exact Bytes / Deletion)" },
+      { "command": "ccpt.viewNotification", "title": "CCPT: View Notification" },
+      { "command": "ccpt.markNotificationRead", "title": "CCPT: Mark Notification Read" },
+      { "command": "ccpt.moreNotifications", "title": "CCPT: Older Notifications" },
+      { "command": "ccpt.refreshNotifications", "title": "CCPT: Refresh Notifications" }
+    ],
+    "viewsContainers": { "activitybar": [{ "id": "ccpt", "title": "CCPT", "icon": "media/icon.svg" }] },
+    "views": { "ccpt": [{ "id": "ccpt.agents", "name": "Agents" }, { "id": "ccpt.sessions", "name": "Sessions" }, { "id": "ccpt.plans", "name": "Plans" }, { "id": "ccpt.teams", "name": "Teams" }, { "id": "ccpt.notifications", "name": "Notifications" }] },
+    "menus": { "view/item/context": [{ "command": "ccpt.cancelAgent", "when": "view == ccpt.agents && viewItem == runningAgent", "group": "inline" }, { "command": "ccpt.markNotificationRead", "when": "view == ccpt.notifications && viewItem == unreadNotification", "group": "inline" }], "view/title":[{"command":"ccpt.refreshNotifications","when":"view == ccpt.notifications","group":"navigation"}] },
+    "configuration": {
+      "title": "CCPT",
+      "properties": { "ccpt.command": { "type": "string", "default": "ccpt", "description": "CCPT executable path." }, "ccpt.restoreSessionHistory": { "type": "boolean", "default": false, "description": "Opt in to showing the last selected saved conversation preview when opening the panel. Reasoning, raw tool data and images are omitted. Viewing never executes a model or tool." } }
+    }
+  }
+}

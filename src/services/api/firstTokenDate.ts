@@ -1,0 +1,1 @@
+let firstTokenAt: number | undefined; export function markFirstToken(now = Date.now()): number { firstTokenAt ??= now; return firstTokenAt; } export const getFirstTokenDate = (): Date | undefined => firstTokenAt === undefined ? undefined : new Date(firstTokenAt); export function resetFirstTokenDate(): void { firstTokenAt = undefined; }

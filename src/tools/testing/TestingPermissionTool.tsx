@@ -1,0 +1,1 @@
+import type { ToolDefinition } from '../../types.js'; import { buildTool } from '../../Tool.js'; export const TestingPermissionTool: ToolDefinition = buildTool({ name: 'testing_permission', description: 'Test-only permission boundary marker.', input_schema: { type: 'object', properties: { value: { type: 'string' } } } });

@@ -1,0 +1,65 @@
+import { mkdtemp, mkdir, cp, readFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { defaultConfig } from '../src/config.js';
+import { writeJson, atomicWriteFile } from '../src/storage.js';
+import { workspaceTrustKey } from '../src/workspaceTrust.js';
+import { removeOwnedTemporaryFixture } from '../test/fixtureCleanup.js';
+const project = resolve(import.meta.dir, '..'), root = await mkdtemp(join(tmpdir(), 'ccpt-followup-smoke-'));
+const state = join(root, 'home'), requests: unknown[] = [];
+let release!: () => void; const gate = new Promise<void>(resolveGate => { release = resolveGate; });
+const server = Bun.serve({ port: 0, async fetch(request) { requests.push(await request.json()); await gate; return Response.json({ choices: [{ message: { content: 'WATCH-BUSY-DONE' }, finish_reason: 'stop' }] }); } });
+const env: Record<string, string> = { CCPT_HOME: state, CCPT_CLI_ENTRY: join(project, 'src/cli.ts') };
+for (const name of ['PATH','Path','SystemRoot','COMSPEC','TEMP','TMP','USERPROFILE']) if (process.env[name]) env[name] = process.env[name]!;
+const config = structuredClone(defaultConfig); config.marketplaceEnabled = false; config.disableBundledSkills = true; config.hooks = [];
+config.model.provider = 'compatible'; config.model.baseUrl = `http://127.0.0.1:${server.port}/v1`; config.model.apiKeyEnv = '';
+config.policy.workspaceRoots = [root]; config.agents.defaultIsolation = 'none'; config.network = { allowedHosts: ['127.0.0.1'], timeoutMs: 10000, rejectUnauthorized: true };
+let output = '';
+const until = async (condition: () => boolean, description: string) => { const deadline = Date.now() + 12000; while (!condition() && Date.now() < deadline) await Bun.sleep(25); if (!condition()) throw new Error('Missing smoke condition: ' + description + '\nFixture-only transcript: ' + output.replace(/\x1b\[[0-9;?]*[a-zA-Z]/g, '').slice(-3000)); };
+let child: ReturnType<typeof Bun.spawn> | undefined, pump: Promise<unknown> | undefined;
+async function cli(cwd: string, args: string[]) {
+  const result = Bun.spawn(['node', join(project, 'dist/cli.js'), ...args, '--cwd', cwd], { cwd, env, stdin: 'ignore', stdout: 'pipe', stderr: 'pipe' });
+  const timer = setTimeout(() => result.kill(), 15000);
+  try { const [out, err, code] = await Promise.all([new Response(result.stdout).text(), new Response(result.stderr).text(), result.exited]); if (code !== 0) throw new Error(err); return JSON.parse(out); } finally { clearTimeout(timer); }
+}
+try {
+  await writeJson(join(root, '.ccpt/settings.json'), config); await writeJson(join(state, 'settings.json'), config);
+  await writeJson(join(state, 'workspace-trust.json'), { version: 1, workspaces: { [workspaceTrustKey(root)]: { trustedAt: new Date().toISOString() } } });
+  const script = `Object.defineProperty(process.stdin,'isTTY',{value:true}); process.stdin.setRawMode=()=>process.stdin; Object.defineProperty(process.stdout,'columns',{value:120}); Object.defineProperty(process.stdout,'rows',{value:30}); const {runTui}=await import(${JSON.stringify(pathToFileURL(join(project, 'src/tui.ts')).href)}); await runTui(process.cwd(),'fixture'); process.exit(0);`;
+  const terminal = Bun.spawn([process.execPath, '-e', script], { cwd: root, env, stdin: 'pipe', stdout: 'pipe', stderr: 'pipe' }); child = terminal;
+  const collect = async (stream: ReadableStream<Uint8Array>) => { for await (const chunk of stream) output += new TextDecoder().decode(chunk); };
+  pump = Promise.all([collect(terminal.stdout), collect(terminal.stderr)]);
+  const send = (value: string) => { terminal.stdin.write(value); terminal.stdin.flush(); };
+  await until(() => output.includes('Using '), 'TUI startup'); send('/reload-skills --watch\r');
+  await until(() => output.includes('Reloaded '), 'watch enabled'); send('Hello 你好\r'); await until(() => requests.length === 1, 'foreground fixture request');
+  await atomicWriteFile(join(root, '.ccpt/skills/live/SKILL.md'), '---\nname: live-watch\ndescription: LIVE-WATCH-DESCRIPTION\n---\nFixture instructions only.');
+  await Bun.sleep(1300);
+  if (/Plugins · 1 Skills/.test(output)) throw new Error('Extension reload ran during the foreground model turn');
+  release(); await until(() => /Plugins · 1 Skills/.test(output), 'deferred idle reload');
+  await atomicWriteFile(join(root, 'custom-skills/new/SKILL.md'), '---\nname: added-skill\ndescription: CONFIG-ROOT-REBOUND\n---\nFixture instructions only.');
+  config.skillsDirectories = ['custom-skills']; await writeJson(join(root, '.ccpt/settings.json'), config);
+  await until(() => /Plugins · 2 Skills/.test(output), 'settings root rebind');
+  output = ''; send('/added'); await until(() => output.includes('CONFIG-ROOT-REBOUND'), 'new root palette');
+  await atomicWriteFile(join(root, 'custom-skills/new/SKILL.md'), '---\nname: added-skill\ndescription: REBOUND-ROOT-UPDATED\n---\nFixture instructions only.');
+  await until(() => output.includes('REBOUND-ROOT-UPDATED'), 'new root remains watched');
+  send('\u0015/exit\r'); await terminal.exited; await pump; child = undefined;
+  if (requests.length !== 1) throw new Error('Watching extensions made an extra model request');
+  const repoA = join(root, 'repo-a'), repoB = join(root, 'repo-b'); await mkdir(repoA); await mkdir(repoB);
+  const git = (cwd: string, ...args: string[]) => execFileSync('git', args, { cwd, env, encoding: 'utf8', stdio: ['ignore','pipe','pipe'] }).trim();
+  git(repoA, 'init', '-b', 'main'); git(repoA, 'config', 'user.email', 'fixture@local'); git(repoA, 'config', 'user.name', 'Fixture');
+  await atomicWriteFile(join(repoA, 'fixture.txt'), 'portable fixture'); git(repoA, 'add', 'fixture.txt'); git(repoA, 'commit', '-m', 'fixture');
+  const ref = 'refs/ccpt/recovery/agent_1111111111111111/save_1111111111111111', commit = git(repoA, 'rev-parse', 'HEAD'); git(repoA, 'update-ref', ref, commit); git(repoB, 'init', '-b', 'main');
+  for (const path of [repoA,repoB]) await writeJson(join(path, '.ccpt/settings.json'), { ...config, policy: { ...config.policy, workspaceRoots: [root] } });
+  const backup = await cli(repoA, ['agents','recovery-backup','--confirm']); const incoming = join(repoB, 'incoming'); await cp(backup.directory, incoming, { recursive: true });
+  await cli(repoB, ['agents','recovery-backup-check',incoming,'--expected-sha256',backup.sha256]);
+  const imported = await cli(repoB, ['agents','recovery-import',incoming,'--expected-sha256',backup.sha256,'--ref',ref,'--branch','recovered','--confirm']);
+  if (imported.commit !== commit) throw new Error('Built CLI recovery import mismatch');
+  await atomicWriteFile(join(repoB, '.ccpt/plugin-transactions/install-partial/plugin.json'), '{partial');
+  const orphans = await cli(repoB, ['plugin','orphans']);
+  const moved = await cli(repoB, ['plugin','quarantine',orphans[0].id,'--expected-digest',orphans[0].digest,'--confirm']);
+  if (moved.installed || !moved.recoverable || await readFile(join(moved.directory, 'staging/plugin.json'), 'utf8') !== '{partial') throw new Error('Built CLI quarantine failed');
+  const report = { pass: true, checks: ['raw-key TUI busy/idle watch','settings root resubscription','new-root Skill palette update','exactly one loopback model request','built Node CLI backup/verification/import','built Node CLI orphan quarantine'], scope: 'fixture TTY overrides, not physical ConPTY/Remote certification', companyRequests: 0, userSettingsModified: false };
+  await writeJson(join(project, '.ccpt/followup-055/final/compiled-and-tui-smoke.json'), report); console.log(JSON.stringify(report, null, 2));
+} finally { release(); child?.kill(); if (child) await child.exited; await pump; server.stop(true); await removeOwnedTemporaryFixture(root); }

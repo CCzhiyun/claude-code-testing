@@ -1,0 +1,34 @@
+import { test, expect } from 'bun:test';
+import { mkdtemp, readFile, writeFile, unlink } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { defaultConfig } from '../src/config.js';
+import { reviewConflictResolution, resolveConflict } from '../src/conflictResolution.js';
+import { previewConflictRestore, restoreConflictResolution } from '../src/conflictRestore.js';
+import { trustWorkspace } from '../src/workspaceTrust.js';
+import { createConflictRestoreDialog,completeConflictDialog } from '../src/components/conflictDialog.js';
+import { removeOwnedTemporaryFixture } from './fixtureCleanup.js';
+async function fixture(action:(root:string,config:typeof defaultConfig,git:(...args:string[])=>string)=>Promise<void>,format='sha1'){
+ const root=await mkdtemp(join(tmpdir(),'ccpt-restore067-')),old=process.env.CCPT_HOME;process.env.CCPT_HOME=join(root,'home');const config=structuredClone(defaultConfig);config.hooks=[];config.policy.workspaceRoots=[root];
+ const git=(...args:string[])=>execFileSync('git',args,{cwd:root,encoding:'utf8',windowsHide:true,stdio:['ignore','pipe','pipe']}).trim();
+ try{await trustWorkspace(root);git('init',`--object-format=${format}`);git('config','user.name','Fixture');git('config','user.email','fixture@example.invalid');git('config','core.autocrlf','false');await writeFile(join(root,'file.dat'),Buffer.from([0,1]));await writeFile(join(root,'other.txt'),'keep');git('add','file.dat','other.txt');git('commit','-m','base');const branch=git('branch','--show-current');git('checkout','-b','other');await writeFile(join(root,'file.dat'),Buffer.from([0,2]));git('commit','-am','theirs');git('checkout',branch);await writeFile(join(root,'file.dat'),Buffer.from([0,3]));git('commit','-am','ours');try{git('merge','other');}catch{}await action(root,config,git);}finally{if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root);}
+}
+for(const choice of ['ours','delete'] as const)test(`reviewed ${choice} conflict resolution undo restores exact working/index bytes and retains both sides`,()=>fixture(async(root,config,git)=>{
+ const original=await readFile(join(root,'.git/index')),working=await readFile(join(root,'file.dat')),head=git('rev-parse','HEAD'),review=await reviewConflictResolution(root,'file.dat',config),resolved=await resolveConflict(root,'file.dat',choice,review.version,true,config),undo=await previewConflictRestore(root,resolved.id,config);
+ await expect(restoreConflictResolution(root,resolved.id,undo.reviewDigest,false,config)).rejects.toThrow('confirm');const result=await restoreConflictResolution(root,resolved.id,undo.reviewDigest,true,config);expect(await readFile(join(root,'.git/index'))).toEqual(original);expect(await readFile(join(root,'file.dat'))).toEqual(working);expect(git('ls-files','--unmerged')).not.toBe('');expect(git('rev-parse','HEAD')).toBe(head);expect(git('show',':other.txt')).toBe('keep');expect(result.pushed).toBe(false);expect(await readFile(join(result.backup,'index.before'))).not.toEqual(original);await expect(previewConflictRestore(root,resolved.id,config)).rejects.toThrow('already started');
+}),20000);
+for(const format of ['sha1','sha256'])test(`split-index ${format} undo restores missing shared object using exact retained checksum`,()=>fixture(async(root,config,git)=>{
+ git('config','core.splitIndex','true');git('update-index','--index-version=4');git('update-index','--split-index');const shared=resolve(root,git('rev-parse','--shared-index-path')),sharedBytes=await readFile(shared),original=await readFile(join(root,'.git/index')),review=await reviewConflictResolution(root,'file.dat',config),resolved=await resolveConflict(root,'file.dat','theirs',review.version,true,config);await unlink(shared);const undo=await previewConflictRestore(root,resolved.id,config);expect(undo.restoresSplitObject).toBe(true);await restoreConflictResolution(root,resolved.id,undo.reviewDigest,true,config);expect(await readFile(shared)).toEqual(sharedBytes);expect(await readFile(join(root,'.git/index'))).toEqual(original);expect(git('ls-files','--unmerged')).not.toBe('');
+},format),20000);
+test('later edits, later staging and stale previews cannot be overwritten by recovery',()=>fixture(async(root,config,git)=>{
+ const review=await reviewConflictResolution(root,'file.dat',config),resolved=await resolveConflict(root,'file.dat','ours',review.version,true,config),undo=await previewConflictRestore(root,resolved.id,config);await writeFile(join(root,'file.dat'),'new editor content');await expect(restoreConflictResolution(root,resolved.id,undo.reviewDigest,true,config)).rejects.toThrow('Working');expect(await readFile(join(root,'file.dat'),'utf8')).toBe('new editor content');await writeFile(join(root,'file.dat'),Buffer.from([0,3]));await writeFile(join(root,'other.txt'),'new staging');git('add','other.txt');await expect(previewConflictRestore(root,resolved.id,config)).rejects.toThrow('index changed');expect(git('show',':other.txt')).toBe('new staging');
+}),20000);
+test('tampered original backup refuses undo; concurrent confirmations have exactly one winner',()=>fixture(async(root,config,git)=>{
+ const review=await reviewConflictResolution(root,'file.dat',config),resolved=await resolveConflict(root,'file.dat','ours',review.version,true,config),original=await readFile(join(resolved.backup,'working.original'));await writeFile(join(resolved.backup,'working.original'),'tampered');await expect(previewConflictRestore(root,resolved.id,config)).rejects.toThrow('tampered');await writeFile(join(resolved.backup,'working.original'),original);const undo=await previewConflictRestore(root,resolved.id,config),results=await Promise.allSettled(Array.from({length:6},()=>restoreConflictResolution(root,resolved.id,undo.reviewDigest,true,config)));expect(results.filter(row=>row.status==='fulfilled')).toHaveLength(1);
+}),20000);
+test('local human dialog cancellation changes nothing, explicit restore rechecks reviewed version',()=>fixture(async(root,config)=>{
+ const review=await reviewConflictResolution(root,'file.dat',config),resolved=await resolveConflict(root,'file.dat','ours',review.version,true,config),before=await readFile(join(root,'.git/index')),dialog=await createConflictRestoreDialog(root,resolved.id,config);
+ expect(dialog.localConflict?.restore?.id).toBe(resolved.id);dialog.answers.confirm=['Cancel — change nothing'];expect((await completeConflictDialog(root,dialog,config)).result).toContain('cancelled');expect(await readFile(join(root,'.git/index'))).toEqual(before);
+ dialog.answers.confirm=['Restore reviewed original bytes'];expect((await completeConflictDialog(root,dialog,config)).result).toHaveProperty('restored',true);
+}),20000);

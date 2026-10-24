@@ -1,0 +1,1 @@
+export function renderToolUseMessage(): string { return 'Entering plan mode'; } export function renderToolResultMessage(): string { return 'Plan mode active'; } export function renderToolUseRejectedMessage(): string { return 'Plan mode request rejected'; }

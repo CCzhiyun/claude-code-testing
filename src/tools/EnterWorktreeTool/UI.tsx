@@ -1,0 +1,1 @@
+import type { Output } from './EnterWorktreeTool.js'; export function renderToolUseMessage(): string { return 'Creating worktree'; } export function renderToolResultMessage(output: Output): string { return `Worktree created at ${output.path}`; }

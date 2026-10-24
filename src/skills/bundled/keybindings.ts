@@ -1,0 +1,1 @@
+export const keybindingsSkill = { name: 'keybindings', description: 'Add or troubleshoot terminal keybindings and chords.', instructions: 'Inspect default and user keymaps, normalize aliases, preserve explicit null unbindings, detect chord conflicts, route actions through the command registry, and test precedence plus partial-chord timeout behavior.' } as const;

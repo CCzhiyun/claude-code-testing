@@ -1,0 +1,3 @@
+import type { PlatformConfig } from '../../types.js';
+import { networkJson } from '../../network.js';
+export class CcrClient { constructor(private readonly baseUrl: string, private readonly token: string, private readonly network: PlatformConfig['network']) {} async request<T>(path: string, method = 'GET', body?: unknown): Promise<T> { const response = await networkJson<T>(new URL(path, this.baseUrl).href, { method, headers: { authorization: `Bearer ${this.token}`, ...(body !== undefined ? { 'content-type': 'application/json' } : {}) }, ...(body !== undefined ? { body: JSON.stringify(body) } : {}) }, this.network); if (response.status < 200 || response.status >= 300) throw new Error(`CCR request failed (${response.status})`); return response.value; } }

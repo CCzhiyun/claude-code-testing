@@ -1,0 +1,1 @@
+export const batchSkill = { name: 'batch', description: 'Plan and execute an independent set of repository changes with bounded concurrency.', instructions: 'Split the request into independent, verifiable units. Respect dependency order, cap concurrency to configured Agent limits, preserve user changes, then aggregate results and run the relevant full test suite.' } as const;

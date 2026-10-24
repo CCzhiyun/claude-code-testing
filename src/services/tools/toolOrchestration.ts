@@ -1,0 +1,6 @@
+import type { Delegate } from '../../tooling.js';
+import type { ToolContext } from '../../types.js';
+import { afterToolCall, beforeToolCall } from './toolHooks.js';
+import { executeToolCall, type ToolCall, type ToolExecutionResult } from './toolExecution.js';
+const SAFE_CONCURRENT_TOOLS = new Set(['list_files', 'read_file', 'search_text', 'memory_list', 'memory_read', 'agent_status', 'task_list', 'team_discover', 'team_inbox', 'checkpoint_list', 'git_status', 'mcp_list_resources', 'mcp_read_resource', 'lsp']);
+export async function runTools(calls: ToolCall[], context: ToolContext, delegate: Delegate, maxConcurrency = 10): Promise<ToolExecutionResult[]> { const output: ToolExecutionResult[] = []; let index = 0; while (index < calls.length) { const call = calls[index]!; const concurrent: ToolCall[] = []; while (index < calls.length && SAFE_CONCURRENT_TOOLS.has(calls[index]!.name) && concurrent.length < maxConcurrency) concurrent.push(calls[index++]!); const batch = concurrent.length ? concurrent : [calls[index++]!]; const results = await Promise.all(batch.map(async (item) => { const prepared = await beforeToolCall(item, context); const result = await executeToolCall(prepared, context, delegate); await afterToolCall(prepared, result, context); return result; })); output.push(...results); } return output; }

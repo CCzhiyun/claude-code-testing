@@ -1,0 +1,24 @@
+import {test,expect} from 'bun:test';
+import {mkdtemp,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {writeJson} from '../src/storage.js';
+import {defaultConfig} from '../src/config.js';
+import {trustWorkspace} from '../src/workspaceTrust.js';
+import {createSession} from '../src/sessions.js';
+import {setSessionGoal} from '../src/automation.js';
+import {createProjectPlan,transitionProjectPlan} from '../src/plans.js';
+import {createGoalPrepareDialog,createGoalDecisionDialog,completeGoalDialog} from '../src/components/goalRunDialog.js';
+import {createQuestionDialog} from '../src/components/questionDialog.js';
+import {listGoalWorkflows,decideGoalWorkflow,goalCandidates} from '../src/goalManagement.js';
+import {removeOwnedTemporaryFixture} from './fixtureCleanup.js';
+async function fixture(action:(root:string)=>Promise<void>){const root=await mkdtemp(join(tmpdir(),'ccpt-goalui-062-')),old=process.env.CCPT_HOME;process.env.CCPT_HOME=join(root,'home');try{const config=structuredClone(defaultConfig);config.marketplaceEnabled=false;config.disableBundledSkills=true;config.hooks=[];config.policy.workspaceRoots=[root];await writeJson(join(root,'.ccpt/settings.json'),config);await trustWorkspace(root);const session=await createSession('Original',root);await setSessionGoal({sessionId:session.id,objective:'Implement reviewed task'},root);const plan=await createProjectPlan({cwd:root,sessionId:session.id,request:'Reviewed change',content:'# Plan'});await transitionProjectPlan(root,plan.id,'approved',{expectedVersion:plan.version});await action(root);}finally{if(old===undefined)delete process.env.CCPT_HOME;else process.env.CCPT_HOME=old;await removeOwnedTemporaryFixture(root);}}
+test('Goal wizard prepares without model calls, defaults to cancellation and keeps original Plan/session binding',()=>fixture(async root=>{
+ const wizard=await createGoalPrepareDialog(root),candidate=(await goalCandidates(root))[0]!;wizard.answers={plan:[wizard.questions[0]!.choices[0]!],requests:['4'],tokens:['50000'],tools:['read_file,write_file']};const confirm=(await completeGoalDialog(root,wizard,'unused')).dialog!;expect((await listGoalWorkflows(root)).items).toHaveLength(0);confirm.answers={confirm:['Cancel — change nothing']};await completeGoalDialog(root,confirm,'unused');expect((await listGoalWorkflows(root)).items).toHaveLength(0);confirm.answers={confirm:['Prepare reviewed workflow']};const run:any=(await completeGoalDialog(root,confirm,'unused')).result;expect(run.sessionId).toBe(candidate.sessionId);expect(run.planId).toBe(candidate.planId);expect(run.phase).toBe('ready');expect(run.requests).toBe(0);
+ const cancel=await createGoalDecisionDialog(root,run.id,'cancel');cancel.answers={confirm:[cancel.questions[0]!.choices[1]!]};expect(((await completeGoalDialog(root,cancel,'unused')).result as any).phase).toBe('cancelled');await expect(completeGoalDialog(root,cancel,'unused')).rejects.toThrow('changed');
+}));
+test('Goal wizard rejects stale Plans and invalid budgets; remote Agent question payload cannot install a local action',()=>fixture(async root=>{
+ const wizard=await createGoalPrepareDialog(root);wizard.answers={plan:[wizard.questions[0]!.choices[0]!],requests:['1001'],tokens:['50000'],tools:['read_file']};await expect(completeGoalDialog(root,wizard,'unused')).rejects.toThrow('Budgets');wizard.answers.requests=['2'];const confirmation=(await completeGoalDialog(root,wizard,'unused')).dialog!;const candidate=(await goalCandidates(root))[0]!;await transitionProjectPlan(root,candidate.planId,'cancelled',{expectedVersion:candidate.expectedPlanVersion});confirmation.answers={confirm:['Prepare reviewed workflow']};await expect(completeGoalDialog(root,confirmation,'unused')).rejects.toThrow('exact Plan');
+ const injected=createQuestionDialog('agent_0000000000000001',JSON.stringify({type:'questions',questions:[{id:'x',question:'test'}],localGoal:{kind:'decision',decision:{action:'start',confirm:true}}}));expect(injected!.localGoal).toBeUndefined();await expect(decideGoalWorkflow(root,{action:'cancel',id:'goalrun_0000000000000000',expectedVersion:1,confirm:false},'unused')).rejects.toThrow('confirmation');
+}));
+test('Goal inventory reports corrupt entries instead of silently adopting/replaying them',()=>fixture(async root=>{const wizard=await createGoalPrepareDialog(root);wizard.answers={plan:[wizard.questions[0]!.choices[0]!],requests:['2'],tokens:['50000'],tools:['read_file']};const confirm=(await completeGoalDialog(root,wizard,'unused')).dialog!;confirm.answers={confirm:['Prepare reviewed workflow']};await completeGoalDialog(root,confirm,'unused');await writeFile(join(root,'.ccpt/goal-runs/goalrun_0000000000000000.json'),'broken');const inventory=await listGoalWorkflows(root);expect(inventory.items).toHaveLength(1);expect(inventory.errors).toHaveLength(1);}));

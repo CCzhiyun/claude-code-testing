@@ -1,0 +1,2 @@
+import { createInterface } from 'node:readline/promises';
+export async function launchConfirmation(message: string): Promise<boolean> { if (!process.stdin.isTTY) return false; const input = createInterface({ input: process.stdin, output: process.stdout }); try { const answer = (await input.question(`${message} [y/N] `)).trim().toLowerCase(); return answer === 'y' || answer === 'yes'; } finally { input.close(); } }

@@ -1,0 +1,2 @@
+export interface Notification { id: string; level: 'info' | 'success' | 'warning' | 'error'; message: string; createdAt: string }
+export class NotificationContext { private items: Notification[] = []; add(notification: Notification): void { this.items.push(notification); this.items = this.items.slice(-100); } dismiss(id: string): void { this.items = this.items.filter((item) => item.id !== id); } list(): Notification[] { return this.items.map((item) => ({ ...item })); } }

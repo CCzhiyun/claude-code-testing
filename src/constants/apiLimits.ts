@@ -1,0 +1,2 @@
+export const MAX_API_RESPONSE_BYTES = 25 * 1024 * 1024;
+export const DEFAULT_REQUEST_TIMEOUT_MS = 120_000;

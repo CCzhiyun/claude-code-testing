@@ -1,0 +1,2 @@
+export interface McpChannelNotification { server: string; channel: string; sequence: number; payload: unknown }
+export class McpChannelNotifications { private last = new Map<string, number>(); accept(notification: McpChannelNotification): boolean { const key = `${notification.server}:${notification.channel}`; const prior = this.last.get(key) ?? 0; if (!Number.isInteger(notification.sequence) || notification.sequence <= prior) return false; this.last.set(key, notification.sequence); return true; } }

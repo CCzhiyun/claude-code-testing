@@ -1,0 +1,2 @@
+import { mkdir, writeFile } from 'node:fs/promises'; import { dirname } from 'node:path'; import type { ModelMessage } from '../../types.js';
+export async function dumpPrompts(path: string, system: string, messages: ModelMessage[]): Promise<void> { const redact = (value: string) => value.replace(/\b(?:Bearer\s+)?[A-Za-z0-9_-]{24,}\b/g, '[redacted]'); await mkdir(dirname(path), { recursive: true }); await writeFile(path, JSON.stringify({ system: redact(system), messages: JSON.parse(redact(JSON.stringify(messages))) }, null, 2), { mode: 0o600 }); }

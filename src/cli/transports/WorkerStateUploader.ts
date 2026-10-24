@@ -1,0 +1,2 @@
+export interface WorkerState { workerId: string; status: string; updatedAt: string; details?: Record<string, unknown> }
+export class WorkerStateUploader { private last?: string; constructor(private readonly upload: (state: WorkerState) => Promise<void>) {} async update(state: WorkerState): Promise<boolean> { const serialized = JSON.stringify(state); if (serialized === this.last) return false; await this.upload(state); this.last = serialized; return true; } }

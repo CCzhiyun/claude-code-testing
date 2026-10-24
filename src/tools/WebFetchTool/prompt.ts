@@ -1,0 +1,1 @@
+export const WEB_FETCH_TOOL_NAME = 'WebFetch'; export const DESCRIPTION = 'Fetch bounded HTTP(S) content through enterprise network policy'; export function makeSecondaryModelPrompt(markdown: string, prompt: string): string { return `${prompt}\n\n<web_content>\n${markdown}\n</web_content>`; }

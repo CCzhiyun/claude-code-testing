@@ -1,0 +1,2 @@
+export type CommandSemantic = (input: { command: string; code: number; stdout: string; stderr: string }) => { success: boolean; message?: string } | null;
+export function interpretCommandResult(command: string, code: number, stdout = '', stderr = ''): { success: boolean; message: string } { const text = (code === 0 ? stdout : stderr || stdout).trim(); return { success: code === 0, message: text || (code === 0 ? `Command completed: ${command}` : `Command failed with exit code ${code}: ${command}`) }; }

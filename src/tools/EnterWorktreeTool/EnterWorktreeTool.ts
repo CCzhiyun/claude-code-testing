@@ -1,0 +1,4 @@
+import type { ToolContext, ToolDefinition } from '../../types.js'; import { buildTool } from '../../Tool.js'; import { createWorktree } from '../../worktree.js'; import { getSessionWorktree, setSessionWorktree } from '../modeState.js';
+export type Output = { path: string; repo: string };
+export async function executeEnterWorktree(context: ToolContext): Promise<Output> { if (getSessionWorktree(context.sessionId)) throw new Error('Session already has a managed worktree'); const path = await createWorktree(context.cwd, context.agentId, context.config); setSessionWorktree(context.sessionId, context.cwd, path); return { path, repo: context.cwd }; }
+export const EnterWorktreeTool: ToolDefinition = buildTool({ name: 'enter_worktree', description: 'Create a managed isolated Git worktree for this session.', input_schema: { type: 'object', properties: {} } });

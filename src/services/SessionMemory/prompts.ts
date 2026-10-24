@@ -1,0 +1,1 @@
+export const SESSION_MEMORY_PROMPT = 'Extract only durable decisions, conventions, unresolved risks and verified commands from this session. Do not include credentials, guesses, or transient progress.';

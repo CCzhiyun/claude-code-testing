@@ -1,0 +1,7 @@
+import { stripAnsi, terminalWidth } from '../ink.js';
+export function truncateText(value: string, maximum: number, suffix = '…'): string { if (maximum < 0) throw new Error('Maximum length cannot be negative'); if ([...value].length <= maximum) return value; if (maximum <= [...suffix].length) return [...suffix].slice(0, maximum).join(''); return `${[...value].slice(0, maximum - [...suffix].length).join('')}${suffix}`; }
+export function sliceAnsi(value: string, start: number, end = Number.POSITIVE_INFINITY): string { const plain = stripAnsi(value); return [...plain].slice(Math.max(0, start), Math.max(0, end)).join(''); }
+export function terminalPad(value: string, width: number): string { return `${value}${' '.repeat(Math.max(0, width - terminalWidth(value)))}`; }
+export function highlightMatch(value: string, query: string, open = '\u001b[1m', close = '\u001b[0m'): string { if (!query) return value; const index = value.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()); return index < 0 ? value : `${value.slice(0, index)}${open}${value.slice(index, index + query.length)}${close}${value.slice(index + query.length)}`; }
+export function words(value: string): string[] { return value.normalize('NFKC').trim().split(/[^\p{Letter}\p{Number}_-]+/u).filter(Boolean); }
+export function sanitizeControlCharacters(value: string): string { return value.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, ''); }

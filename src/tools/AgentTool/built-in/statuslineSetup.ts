@@ -1,0 +1,1 @@
+import type { BuiltInAgentDefinition } from '../loadAgentsDir.js'; export const STATUSLINE_SETUP_AGENT: BuiltInAgentDefinition = { agentType: 'statusline-setup', whenToUse: 'Configure a project status line', systemPrompt: 'Inspect existing settings and make a minimal, portable status-line configuration.', source: 'built-in' };

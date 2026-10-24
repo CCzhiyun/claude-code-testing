@@ -1,0 +1,3 @@
+import { stringWidth } from './stringWidth.js';
+export function nextTabStop(column: number, size = 8): number { const safe = Math.max(1, Math.floor(size)); return column + safe - (column % safe); }
+export function expandTabs(value: string, size = 8, initialColumn = 0): string { let column = Math.max(0, initialColumn); let output = ''; for (const character of value) { if (character === '\t') { const next = nextTabStop(column, size); output += ' '.repeat(next - column); column = next; } else { output += character; column = character === '\n' ? 0 : column + stringWidth(character); } } return output; }

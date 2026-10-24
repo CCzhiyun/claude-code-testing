@@ -1,0 +1,4 @@
+import { READ_ONLY_COMMANDS, parseSimpleCommand } from '../shellParsing.js';
+const MUTATING_GIT = new Set(['add', 'commit', 'checkout', 'switch', 'reset', 'clean', 'push', 'pull', 'merge', 'rebase', 'tag', 'branch']);
+export function isCommandSafeViaFlagParsing(command: string): boolean { try { const parsed = parseSimpleCommand(command); const name = parsed.command.toLowerCase(); if (!READ_ONLY_COMMANDS.has(name)) return false; if (name === 'git' && MUTATING_GIT.has(parsed.args[0]?.toLowerCase() ?? '')) return false; return !parsed.args.some((arg) => /^--?(?:delete|write|output|in-place|force)$/i.test(arg)); } catch { return false; } }
+export function checkReadOnlyConstraints(command: string): { readOnly: boolean; reason?: string } { const readOnly = isCommandSafeViaFlagParsing(command); return readOnly ? { readOnly } : { readOnly, reason: 'Command is not provably read-only' }; }

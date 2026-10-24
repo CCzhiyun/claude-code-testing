@@ -1,0 +1,5 @@
+import type { ToolContext, ToolDefinition } from '../../types.js'; import { buildTool } from '../../Tool.js'; import { isPlanMode } from '../modeState.js';
+export type AllowedPrompt = { question: string }; export type Output = { planMode: true; awaitingApproval: true; plan: string };
+export function executeExitPlanMode(plan: string, context: ToolContext): Output { if (!isPlanMode(context.sessionId)) throw new Error('Session is not in plan mode'); if (plan.trim().length < 20) throw new Error('A concrete plan is required before submitting it'); return { planMode: true, awaitingApproval: true, plan: plan.trim() }; }
+export const _sdkInputSchema = { type: 'object', properties: { plan: { type: 'string' } }, required: ['plan'] }; export const outputSchema = { type: 'object', properties: { planMode: { type: 'boolean' }, plan: { type: 'string' } } };
+export const ExitPlanModeV2Tool: ToolDefinition = buildTool({ name: 'exit_plan_mode', description: 'Submit a concrete Plan and pause for explicit human approval. Does not grant editing permissions.', input_schema: _sdkInputSchema });

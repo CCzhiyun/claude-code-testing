@@ -1,0 +1,2 @@
+export function parseBoolean(value: string): boolean { if (['1', 'true', 'yes', 'on'].includes(value.toLowerCase())) return true; if (['0', 'false', 'no', 'off'].includes(value.toLowerCase())) return false; throw new Error(`Invalid boolean value: ${value}`); }
+export function requireArgument(value: string | undefined, label: string): string { if (!value) throw new Error(`${label} is required`); return value; }

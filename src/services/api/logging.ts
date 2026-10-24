@@ -1,0 +1,2 @@
+import { audit } from '../../audit.js'; import type { ModelResponse } from '../../model.js';
+export async function logApiResponse(response: ModelResponse, durationMs: number, sessionId?: string): Promise<void> { await audit({ event: 'ApiResponse', outcome: 'success', ...(sessionId ? { sessionId } : {}), details: { durationMs, blocks: response.content.length, stopReason: response.stopReason } }); }

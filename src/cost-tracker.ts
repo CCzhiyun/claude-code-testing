@@ -1,0 +1,3 @@
+export interface Usage { inputTokens: number; outputTokens: number; cacheReadTokens?: number; cacheWriteTokens?: number }
+export interface TokenRates { inputPerMillion: number; outputPerMillion: number; cacheReadPerMillion?: number; cacheWritePerMillion?: number }
+export class CostTracker { private totalUsd = 0; add(usage: Usage, rates: TokenRates): number { const cost = usage.inputTokens * rates.inputPerMillion / 1_000_000 + usage.outputTokens * rates.outputPerMillion / 1_000_000 + (usage.cacheReadTokens ?? 0) * (rates.cacheReadPerMillion ?? rates.inputPerMillion) / 1_000_000 + (usage.cacheWriteTokens ?? 0) * (rates.cacheWritePerMillion ?? rates.inputPerMillion) / 1_000_000; this.totalUsd += cost; return cost; } get total(): number { return this.totalUsd; } }
